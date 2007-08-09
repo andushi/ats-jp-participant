@@ -40,19 +40,22 @@ public class ArrayStack extends AbstractArrayStore{
         //Implement this method so that it 'pushes' the object 'arg' onto the top of the stack assuming
         //that the stack is not full, and that a similar object is not already inside the stack. Return 
         //true if the push is successful, false otherwise 
-        
-   
-        //HINT: Remember that the bottom of the stack is index 0
       
+        //HINT: Remember that the bottom of the stack is index 0
+    
       
         if(arg == null){
             throw new IllegalArgumentException("arraystack.method.argument.invalid");
         }
         
         //start solution
-
-        return false;
-      
+        if(isFull()){
+        	return false;
+        }         
+        store[getCount()]=arg;
+        
+        ++currentCount;
+        return true;
     }
 
     public Object pop() {
@@ -64,9 +67,12 @@ public class ArrayStack extends AbstractArrayStore{
         
         //HINT: Remember that the bottom of the stack is index 0
       
-        //start solution
-        
-         return null;
+        //start solution    	
+    	if(getCount()==0){    		
+    		return null;    		
+    	}  	     
+    	--currentCount;
+    	return store[getCount()];
 
     }
 
@@ -78,9 +84,12 @@ public class ArrayStack extends AbstractArrayStore{
         
         //HINT: Remember that the bottom of the stack is index 0
       
-        //start solution
-        
-        return null;
+        //start solution    	
+    	if(getCount()==0){    		
+    		 return null;   		
+    	}  	         
+    	return store[getCount()-1]; 
+       
     }
     
    
