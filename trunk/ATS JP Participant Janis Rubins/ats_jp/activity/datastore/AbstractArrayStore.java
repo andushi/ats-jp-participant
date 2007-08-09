@@ -7,6 +7,8 @@
  */
 package ats_jp.activity.datastore;
 
+import com.sun.org.apache.xpath.internal.operations.Equals;
+
 public abstract class AbstractArrayStore {
     
     //HINT: The following are class constants.  
@@ -17,6 +19,7 @@ public abstract class AbstractArrayStore {
     public static final int NOT_IN_STRUCTURE=-1;
     //This is a constant that represents the default size of the array
     protected static final int DEFAULT_SIZE = 5;
+
 
     
     //HINT: The following are instance variables and are accessible directly by all the methods in this class
@@ -47,19 +50,21 @@ public abstract class AbstractArrayStore {
 
    
     public AbstractArrayStore(){
-        
         //TODO Activity 2.0
         //Initialize the instance variable 'store' that it can hold a number of objects specified by DEFAULT_SIZE
-        
+    	store = new Object[DEFAULT_SIZE];
         
     }
     
-    public AbstractArrayStore(int size){
-        
+    public AbstractArrayStore(int size){           	
         //TODO Activity 2.1 
         //Initialize the instance variable 'store' so that it can hold a number of objects specified by 'size'.
-        //If the variable 'size' is in anyway illegal for an array, then use DEFAULT_SIZE instead
-        
+        //If the variable 'size' is in anyway illegal for an array, then use DEFAULT_SIZE instead    
+    	if (size<=0) {
+    		store = new Object[DEFAULT_SIZE];
+    	}    	
+    	else
+    	store = new Object[size];
         
     }
     
@@ -109,22 +114,35 @@ public abstract class AbstractArrayStore {
     
     
     public int find(Object arg) {
-        
-        //TODO Activity 2.3
-        //Search through the current contents of the array 'store' and determine if there is any object
-        //in the array that is equal to 'arg' according to equals() method. Return the index where that 
-        //object is located or NOT_IN_STRUCTURE, if the object is not within
-        //the array.
-     
-        //HINT: All objects have a method named equals() that returns a boolean. 
-        //Ex: This tests if obj1 is "equal to" obj2
-        // if(obj1.equals(obj2)){
-        //    ...
-        // }
-        
-         return NOT_IN_STRUCTURE;
 
-    }
+		// TODO Activity 2.3
+		// Search through the current contents of the array 'store' and
+		// determine if there is any object
+		// in the array that is equal to 'arg' according to equals() method.
+		// Return the index where that
+		// object is located or NOT_IN_STRUCTURE, if the object is not within
+		// the array.
+
+		for (int i = 0; i < DEFAULT_SIZE; i++) {
+			if (store[i] == null) {
+				continue;
+			}
+			if (store[i].equals(arg)) {
+				return i;
+
+			}
+		}
+
+		// HINT: All objects have a method named equals() that returns a
+		// boolean.
+		// Ex: This tests if obj1 is "equal to" obj2
+		// if(obj1.equals(obj2)){
+		// ...
+		// }
+
+		return NOT_IN_STRUCTURE;
+
+	}
     
     
     public boolean contains(Object arg) {
@@ -139,7 +157,10 @@ public abstract class AbstractArrayStore {
         
         //TODO Activity 2.2 
         //Return the object inside 'store' at the array location specified by 'index'
-        
+        if (index>=0 && currentCount>index)
+        {
+    	return store[index];
+        }        
         return null;
     }
 
