@@ -117,7 +117,7 @@ public class Zodiac {
       case(10): if (day<22) return SCORPIO; else return SAGITTARIUS;
       case(11): if (day<22) return SAGITTARIUS; else return CAPRICORN;
       
-    	  default: break;
+      default: break;
       }
         
         /*  if (month==0)
