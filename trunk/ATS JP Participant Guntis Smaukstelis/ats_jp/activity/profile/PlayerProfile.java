@@ -206,11 +206,16 @@ public class PlayerProfile {
         
 
         //start solution 1.0
-        if (currentYear >= birthDateYear){
+        
+        tempAge = currentYear - birthDateYear;
+        if(currentMonth < birthDateMonth) --tempAge;
+        if(currentMonth == birthDateMonth && currentDayOfMonth < birthDayOfMonth) --tempAge;
+        
+       /*if (currentYear >= birthDateYear){
         	if (currentMonth == birthDateMonth){
-        		if (currentDayOfMonth > birthDayOfMonth){
+        		if (currentDayOfMonth >= birthDayOfMonth){
         			tempAge = currentYear - birthDateYear;
-        		}        		
+        		}        		   
         		else {
         			--tempAge;
             		tempAge = currentYear - birthDateYear;
@@ -220,14 +225,14 @@ public class PlayerProfile {
         		--tempAge;
         		tempAge = currentYear - birthDateYear;
         	}
-        	else {
+        	else {        		
         		tempAge = currentYear - birthDateYear;
         	}
         }
         else {
         	tempAge = 0;
         }
-         
+        */ 
         // end solution 1.0
         return tempAge;
     }
