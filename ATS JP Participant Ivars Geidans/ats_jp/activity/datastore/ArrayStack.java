@@ -76,9 +76,13 @@ public class ArrayStack extends AbstractArrayStore{
     		return null;
     	}
     	
-    	currentCount--;
+    	int i = currentCount - 1;
+    	
+        Object obj =  store[i];
+        store[i] = null;
         
-    	return store[getCount()];
+        currentCount--;
+    	return obj;
     }
 
     public Object peek() {
