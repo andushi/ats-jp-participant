@@ -43,25 +43,30 @@ public class ArrayStack extends AbstractArrayStore{
         
    
         //HINT: Remember that the bottom of the stack is index 0
-      
-        int i=0;
-        int max=0;
+    	int i=0;
         if(arg == null){
             throw new IllegalArgumentException("arraystack.method.argument.invalid");
         }
-        
+        boolean bResult=false;
       //  start solution
-       // for (i=0; i<currentCount; i++){
-        //	if (store[i]!=null) max=max++;
-     //   }
+        for (i=0; i<getCount(); i++){
+        	bResult=store[i].equals(arg);
+        	if (bResult==true) return false;
+        }
         
-        if (store[currentCount]==arg) return false;
         if (currentCount==store.length) return false;
-        if (currentCount==0) store[0]=arg;
-         store[currentCount+1]=arg;
+        store[currentCount]=arg;
+        currentCount++;
+        
+   //      if (store[currentCount]==arg) return false;
+  //      if (currentCount==store.length) return false;
+  //      if (currentCount==0) { store[0]=arg; currentCount++; return true;
+   //     }
+    //    else {store[currentCount]=arg; currentCount++;
        
         return true;
         }
+
   
    
 
@@ -75,16 +80,18 @@ public class ArrayStack extends AbstractArrayStore{
         //HINT: Remember that the bottom of the stack is index 0
       
         //start solution
-    	int i=0, max=0;
-    	
+    	Object store2;
     	/*for (i=0; i<currentCount; i++){
     		if (store[currentCount]==null) return null ;
     	 	if (store[i]!=null) max=max++;
     	}*/
-    	if (currentCount==null) return null;
-    	store[currentCount]=null;
+    	if (getCount()==0) return null;
+    	store2=store[currentCount-1];
+ //   	if (store[currentCount-1]==null) return null;
+    	store[currentCount-1]=null;
+    	currentCount--;
       
-         return null;
+        return store2;
 
     }
 
@@ -97,15 +104,15 @@ public class ArrayStack extends AbstractArrayStore{
         //HINT: Remember that the bottom of the stack is index 0
       
         //start solution
-    	int i=0, max=0;
+    	int i=0;
     	
     	/*for (i=0; i<currentCount; i++){
     	 	if (store[i]!=null) max=max++;
     		}
     	*/
-    	 if (store[currentCount]==null) return null;
+    	 if (getCount()==0) return null;
     	
-    	 else return store[currentCount];
+    	 else return store[currentCount-1];
 
     }
     
