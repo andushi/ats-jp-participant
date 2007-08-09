@@ -33,6 +33,7 @@ public class ArrayStore extends AbstractArrayStore {
         if(isFull()) 
         	return false;
         
+        
         store[getCount()] = arg;
         currentCount++;
         
@@ -46,6 +47,8 @@ public class ArrayStore extends AbstractArrayStore {
         	return false;
     	
         int index = find(arg);
+        if(index == -1)
+        	return false;
         remove(index);
         
         return true;
