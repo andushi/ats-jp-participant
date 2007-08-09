@@ -104,10 +104,109 @@ public class Zodiac {
         
         
         //start solution 1.1
+        Zodiac zodiac = null;
         
+        switch(month) {
+        	case 0:
+        		if(day >= 1 && day <= 19) {
+            		zodiac = CAPRICORN;
+        		}
+        		if(day >= 20 && day <= 31) {
+            		zodiac = AQUARIUS;
+        		}
+        		break;
+        	case 1:
+        		if(day >= 1 && day <= 18) {
+            		zodiac = AQUARIUS;
+        		}
+        		if(day >= 19 && day <= 29) {
+            		zodiac = PISCES;
+        		}
+        		break;
+        	case 2:
+        		if(day >= 1 && day <= 20) {
+            		zodiac = PISCES;
+        		}
+        		if(day >= 21 && day <= 31) {
+            		zodiac = ARIES;
+        		}
+        		break;
+        	case 3:
+        		if(day >= 1 && day <= 19) {
+            		zodiac = ARIES;
+        		}
+        		if(day >= 20 && day <= 30) {
+            		zodiac = TAURUS;
+        		}
+        		break;
+        	case 4:
+        		if(day >= 1 && day <= 20) {
+            		zodiac = TAURUS;
+        		}
+        		if(day >= 21 && day <= 31) {
+            		zodiac = GEMINI;
+        		}
+        		break;
+        	case 5:
+        		if(day >= 1 && day <= 20) {
+            		zodiac = GEMINI;
+        		}
+        		if(day >= 21 && day <= 30) {
+            		zodiac = CANCER;
+        		}
+        		break;
+        	case 6:
+        		if(day >= 1 && day <= 22) {
+            		zodiac = CANCER;
+        		}
+        		if(day >= 23 && day <= 31) {
+            		zodiac = LEO;
+        		}
+        		break;
+        	case 7:
+        		if(day >= 1 && day <= 22) {
+            		zodiac = LEO;
+        		}
+        		if(day >= 23 && day <= 31) {
+            		zodiac = VIRGO;
+        		}
+        		break;
+        	case 8:
+        		if(day >= 1 && day <= 22) {
+            		zodiac = VIRGO;
+        		}
+        		if(day > 23 && day <= 30) {
+            		zodiac = LIBRA;
+        		}
+        		break;
+        	case 9:
+        		if(day >= 1 && day <= 22) {
+            		zodiac = LIBRA;
+        		}
+        		if(day > 23 && day <= 31) {
+            		zodiac = SCORPIO;
+        		}
+        		break;
+        	case 10:
+        		if(day > 1 && day <= 21) {
+            		zodiac = SCORPIO;
+        		}
+        		if(day >= 22 && day <= 30) {
+            		zodiac = SAGITTARIUS;
+        		}
+        		break;
+        	case 11:
+        		if(day >= 1 && day <= 21) {
+            		zodiac = SAGITTARIUS;
+        		}
+        		if(day >= 22 && day <= 31) {
+        			zodiac = CAPRICORN;
+        		}
+        		break;
+        }
         
         // end solution 1.1        
-        return null;
+        return zodiac;
     }
     
     public String toString(){
