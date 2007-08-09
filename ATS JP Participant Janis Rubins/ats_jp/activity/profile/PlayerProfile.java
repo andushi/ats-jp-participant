@@ -198,8 +198,14 @@ public class PlayerProfile {
         
         
         int tempAge=-1;
-     
-        		
+        int men,dien,gad;
+        dien=currentDayOfMonth-birthDayOfMonth;
+        men=currentMonth-birthDateMonth;
+        gad=currentYear-birthDateYear;   
+        tempAge=gad;
+        if (birthDateMonth>currentMonth || (birthDateMonth==currentMonth && birthDayOfMonth>currentDayOfMonth)) {        
+        tempAge--;        
+        }
         
         //TODO Activity 1.0
         //Compute the age in years, based on the values of the variables given above and assign
