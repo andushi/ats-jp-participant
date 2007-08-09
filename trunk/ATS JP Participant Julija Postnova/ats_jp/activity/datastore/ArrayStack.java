@@ -50,9 +50,18 @@ public class ArrayStack extends AbstractArrayStore{
         }
         
         //start solution
-
-        return false;
-      
+        if (isFull()){
+        	return false;
+        }
+        
+	     for( int i=0;i<getCount();i++){	    	 
+	    	 if(store[i].equals(arg)){
+		    	 return false;	    		 
+	    	 }
+	     }  
+	     store[getCount()]=arg;
+	     currentCount+=1;
+	     return true;
     }
 
     public Object pop() {
@@ -65,23 +74,34 @@ public class ArrayStack extends AbstractArrayStore{
         //HINT: Remember that the bottom of the stack is index 0
       
         //start solution
-        
-         return null;
 
+
+        if (getCount()==0){
+         return null;
+        }
+        Object now = store[getCount()-1];
+        store[getCount()-1]=null;
+        currentCount-=1;
+        return now;
     }
 
     public Object peek() {
 
-        //TODO Activity 2.6
-        //Implement this method so that it takes a look at the top most object of the stack.  It 
-        //returns the object, but does not remove it from the stack.  Return null if the peek fails.
-        
-        //HINT: Remember that the bottom of the stack is index 0
-      
-        //start solution
-        
-        return null;
-    }
+		// TODO Activity 2.6
+		// Implement this method so that it takes a look at the top most object
+		// of the stack. It
+		// returns the object, but does not remove it from the stack. Return
+		// null if the peek fails.
+
+		// HINT: Remember that the bottom of the stack is index 0
+
+		// start solution\
+		if (getCount() == 0) {
+			return null;
+		}
+		   return store[getCount()-1] ;
+	}
+    	
     
    
     
