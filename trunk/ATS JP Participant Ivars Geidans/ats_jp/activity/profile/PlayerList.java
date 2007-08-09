@@ -44,18 +44,29 @@ public class PlayerList {
 	}
 	
 	public PlayerProfile[] findPlayer(String name) {
-		int i, j = 0;
+		int i, j = 0, len = 0;
 		PlayerProfile[] pps2 = new PlayerProfile[size];
+		
 		for(i = 0; i < pcount; ++i) {
 			if(playerProfiles[i].getName() == name) {
 				pps2[j++] = playerProfiles[i];
+				len++;
 			}
 		}
-		return pps2;
+		
+		PlayerProfile[] pps3 = new PlayerProfile[len];
+		for(i = 0; i < len; ++i)
+			pps3[i] = pps2[i];
+		
+		return pps3;
 	}
 	
 	public PlayerProfile[] getAll() {
-		return playerProfiles;
+		System.out.println(pcount);
+		PlayerProfile[] pps2 = new PlayerProfile[pcount];
+		for(int i = 0; i < pcount; ++i)
+			pps2[i] = playerProfiles[i];
+		return pps2;
 	}
 	
 	public int getPlayerCount() {
@@ -68,14 +79,25 @@ public class PlayerList {
 
 	public PlayerProfile removePlayer(int id) {
 		int i, index = -1;
+		PlayerProfile pp;
 		for(i = 0; i < pcount; ++i) {
 			if(playerProfiles[i].getID() == id) {
 				index = i;
 			}
 		}
+		
 		if(index < 0) 
 			return null;
 		
-		return playerProfiles[index];
+		pp = playerProfiles[index];
+		
+		for(i = index; i < pcount - 1;  ++i) {
+			playerProfiles[i] = playerProfiles[i + 1];
+		}
+		
+		
+		pcount--;
+		
+		return pp;
 	}
 }
