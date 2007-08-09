@@ -105,6 +105,51 @@ public class Zodiac {
         
         //start solution 1.1
         
+        Zodiac zodiac = null;
+     
+        
+        switch (month) { 
+        case 0:	if (day > 19) {zodiac = 'AQUARIUS' };
+        		if (day < 20) {zodiac = 'CAPRICORN' };
+        	 
+        case 1:	if (day > 18) {zodiac = 'PISCES' };
+				if (day < 19) {zodiac = 'AQUARIUS ' };
+        	
+        case 2:	if (day > 20) {zodiac = 'ARIES' };
+				if (day < 21) {zodiac = 'PISCES  ' };
+				
+        case 3:	if (day > 20) {zodiac = 'TAURUS' };
+				if (day < 21) {zodiac = 'ARIES' };
+				
+        case 4:	if (day > 20) {zodiac = 'GEMINI' };
+				if (day < 21) {zodiac = 'TAURUS' };
+				
+        case 5:	if (day > 20) {zodiac = 'CANCER' };
+				if (day < 21) {zodiac = 'GEMINI' };
+				
+        case 6:	if (day > 22) {zodiac = 'LEO' };
+				if (day < 23) {zodiac = 'CANCER' };
+				
+        case 7:	if (day > 22) {zodiac = 'LEO' };
+				if (day < 23) {zodiac = 'GEMINI' };
+				
+        case 8:	if (day > 22) {zodiac = 'LIBRA' };
+				if (day < 23) {zodiac = 'VIRGO' };
+				
+        case 9:	if (day > 22) {zodiac = 'SCORPIO' };
+				if (day < 23) {zodiac = 'LIBRA ' };
+				
+        case 10:if (day > 22) {zodiac = 'SAGITTARIUS' };
+				if (day < 23) {zodiac = 'SCORPIO' };
+				
+        case 11:if (day > 22) {zodiac = 'CAPRICORN' };
+				if (day < 23) {zodiac = 'SAGITTARIUS  ' };
+		
+				
+        	 
+        }
+
+        return zodiac;
         
         // end solution 1.1        
         return null;
