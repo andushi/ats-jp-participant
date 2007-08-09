@@ -197,7 +197,7 @@ public class PlayerProfile {
         int birthDayOfMonth =  birthDate.get(Calendar.DAY_OF_MONTH);	//date of birth
         
         
-        int tempAge=-1;
+       int tempAge=-1;
         
         //TODO Activity 1.0
         //Compute the age in years, based on the values of the variables given above and assign
@@ -206,10 +206,19 @@ public class PlayerProfile {
         
 
         //start solution 1.0
-      
-         
+       tempAge = currentYear - birthDateYear;
+       if(currentMonth< birthDateMonth){
+           tempAge--;
+       }
+       else if (currentMonth ==  birthDateMonth){
+           if(currentDayOfMonth < birthDayOfMonth){
+               tempAge --;
+           }
+       }
+       
+        
         // end solution 1.0
-        return tempAge;
+        return tempAge; 
     }
     
     public String toString(){
