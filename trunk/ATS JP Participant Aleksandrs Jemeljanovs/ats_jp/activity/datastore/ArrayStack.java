@@ -50,8 +50,22 @@ public class ArrayStack extends AbstractArrayStore{
         }
         
         //start solution
-
-        return false;
+        
+        
+        boolean b=false;;
+        
+         
+        
+        if (isFull()) {return false;}
+       
+        
+        currentCount++;
+       	
+        store[currentCount-1]=arg; b=true;
+        
+       
+        
+        return b;
       
     }
 
@@ -66,7 +80,15 @@ public class ArrayStack extends AbstractArrayStore{
       
         //start solution
         
-         return null;
+    	int i;
+    	if (currentCount==0)return null;
+    	
+    	i=currentCount-1; 
+    	Object c = store[i];
+    	currentCount--;
+    	store[i]=null;
+    
+         return c;
 
     }
 
@@ -80,11 +102,15 @@ public class ArrayStack extends AbstractArrayStore{
       
         //start solution
         
-        return null;
+    	int i;
+    	if (currentCount==0)return null;
+    	i=currentCount-1; 
+    	Object d = store[i];
+    	
+        return d;
     }
     
-   
-    
+  
     public boolean add(Object arg) {
         return push(arg);
     }
