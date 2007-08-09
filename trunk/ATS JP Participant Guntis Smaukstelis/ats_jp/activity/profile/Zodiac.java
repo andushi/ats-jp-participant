@@ -45,7 +45,7 @@ public class Zodiac {
     public static final Zodiac AQUARIUS
         = new Zodiac(Calendar.JANUARY, 20, Calendar.FEBRUARY, 18, "Aquarius");
     public static final Zodiac PISCES
-        = new Zodiac(Calendar.FEBRUARY, 19, Calendar.MARCH, 20, "Sagittarius");
+        = new Zodiac(Calendar.FEBRUARY, 19, Calendar.MARCH, 20, "Pisces");
     
  
     private Zodiac(int startMonth, int startDate, int endMonth, int endDate, String toString){
@@ -101,13 +101,62 @@ public class Zodiac {
         // the activity.
         
         //HINT: Research the 'return' keyword
-        
-        
         //start solution 1.1
+        Zodiac MyZodiac = null;        
+        switch(month){
+        case 0:
+            if(day>=1 && day <=19) MyZodiac = CAPRICORN;
+        	else if(day>=20 && day <=31) MyZodiac = AQUARIUS;
+            break;
+        case 1:
+        	if(day>=1 && day <=18) MyZodiac = AQUARIUS;
+        	else if(day>=19 && day <=28) MyZodiac = PISCES;
+        	break;
+        case 2:
+        	if(day>=1 && day <=19) MyZodiac = PISCES;
+        	else if(day>=20 && day <=31) MyZodiac = ARIES;
+        	break;
+        case 3:
+        	if(day>=1 && day <=19) MyZodiac = ARIES;
+        	else if(day>=20 && day <=30) MyZodiac = TAURUS;
+        	break;
+        case 4:
+        	if(day>=1 && day <=20) MyZodiac = TAURUS;
+        	else if(day>=21 && day <=31) MyZodiac = GEMINI;
+        	break;
+        case 5:
+        	if(day>=1 && day <=20) MyZodiac = GEMINI;
+        	else if(day>=21 && day <=30) MyZodiac = CANCER;
+        	break;
+        case 6:
+        	if(day>=1 && day <=22) MyZodiac = CANCER;
+        	else if(day>=23 && day <=31) MyZodiac = LEO;
+        	break;
+        case 7:
+        	if(day>=1 && day <=22) MyZodiac = LEO;
+        	else if(day>=23 && day <=31) MyZodiac = VIRGO;
+        	break;
+        case 8:
+        	if(day>=1 && day <=22) MyZodiac = VIRGO;
+        	else if(day>=23 && day <=30) MyZodiac = LIBRA;
+        	break;
+        case 9:
+        	if(day>=1 && day <=22) MyZodiac = LIBRA;
+        	else if(day>=23 && day <=31) MyZodiac = SCORPIO;
+        	break;
+        case 10:
+        	if(day>=1 && day <=21) MyZodiac = SCORPIO;
+        	else if(day>=22 && day <=30) MyZodiac = SAGITTARIUS;
+        	break;
+        case 11:
+        	if(day>=1 && day <=21) MyZodiac = SAGITTARIUS;
+        	else if(day>=22 && day <=31) MyZodiac = CAPRICORN;
+        	break;        
+        }     
         
         
         // end solution 1.1        
-        return null;
+        return MyZodiac;
     }
     
     public String toString(){
