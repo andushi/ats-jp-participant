@@ -41,7 +41,9 @@ public class ArrayStack extends AbstractArrayStore{
         //that the stack is not full, and that a similar object is not already inside the stack. Return 
         //true if the push is successful, false otherwise 
         
-   
+        
+
+    
         //HINT: Remember that the bottom of the stack is index 0
       
       
@@ -50,7 +52,12 @@ public class ArrayStack extends AbstractArrayStore{
         }
         
         //start solution
-
+    	if (getSize()>getCount()) {
+    		store[getCount()] = arg;
+    		currentCount++;
+            return true;
+            }
+        	else        	
         return false;
       
     }
@@ -65,9 +72,18 @@ public class ArrayStack extends AbstractArrayStore{
         //HINT: Remember that the bottom of the stack is index 0
       
         //start solution
-        
-         return null;
-
+    int k;
+    if (currentCount==0) {
+    return null;	
+    }
+    
+    k=--currentCount;    
+    Object x=store[k];
+    store[k]=null;
+    return x;
+   
+   
+    
     }
 
     public Object peek() {
@@ -79,8 +95,15 @@ public class ArrayStack extends AbstractArrayStore{
         //HINT: Remember that the bottom of the stack is index 0
       
         //start solution
-        
-        return null;
+    	int k;
+    	if (getCount()==0) {
+    	    return null;	
+    	    }
+    	k=getCount() - 1;    
+        Object x=store[k];        
+        return x;
+       
+        //return null;
     }
     
    
