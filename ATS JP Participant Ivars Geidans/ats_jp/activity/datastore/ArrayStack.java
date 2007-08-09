@@ -50,7 +50,7 @@ public class ArrayStack extends AbstractArrayStore{
         }
         
         //start solution
-        if(isFull()) {
+        if(isFull() || find(arg) != -1) {
         	return false;
         }
         
