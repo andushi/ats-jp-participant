@@ -123,16 +123,14 @@ public abstract class AbstractArrayStore {
         // if(obj1.equals(obj2)){
         //    ...
         // }
-    	int i, index = -1;
+    	int i, index = NOT_IN_STRUCTURE;
+    	
         for(i = 0; i < store.length; ++i) {
         	if(arg.equals(store[i]))
         		index = i;
         }
-        if(index != -1) {
-        	return index;
-        }
-        return NOT_IN_STRUCTURE;
 
+        return index;
     }
     
     
