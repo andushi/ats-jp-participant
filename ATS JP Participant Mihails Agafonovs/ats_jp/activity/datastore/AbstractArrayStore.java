@@ -50,7 +50,7 @@ public abstract class AbstractArrayStore {
         
         //TODO Activity 2.0
         //Initialize the instance variable 'store' that it can hold a number of objects specified by DEFAULT_SIZE
-        
+        store=new Object[DEFAULT_SIZE];
         
     }
     
@@ -59,7 +59,8 @@ public abstract class AbstractArrayStore {
         //TODO Activity 2.1 
         //Initialize the instance variable 'store' so that it can hold a number of objects specified by 'size'.
         //If the variable 'size' is in anyway illegal for an array, then use DEFAULT_SIZE instead
-        
+    	if ((size<0) || size>DEFAULT_SIZE) store=new Object[DEFAULT_SIZE]; 
+    	else store=new Object[size];
         
     }
     
@@ -106,8 +107,6 @@ public abstract class AbstractArrayStore {
         }
     }
     
-    
-    
     public int find(Object arg) {
         
         //TODO Activity 2.3
@@ -121,9 +120,14 @@ public abstract class AbstractArrayStore {
         // if(obj1.equals(obj2)){
         //    ...
         // }
-        
-         return NOT_IN_STRUCTURE;
-
+    	int i=0;
+    	for (i=0; i<DEFAULT_SIZE; i++){
+    		if (store[i]==null) continue;
+    		if ((store[i]).equals(arg)) return i;
+    		else  return NOT_IN_STRUCTURE;
+    	};
+    	return i;
+            
     }
     
     
@@ -139,8 +143,8 @@ public abstract class AbstractArrayStore {
         
         //TODO Activity 2.2 
         //Return the object inside 'store' at the array location specified by 'index'
-        
-        return null;
+    	
+        return store[index];
     }
 
    
