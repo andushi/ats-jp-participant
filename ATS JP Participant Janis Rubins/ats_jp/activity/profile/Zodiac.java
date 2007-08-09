@@ -99,6 +99,73 @@ public class Zodiac {
         //a corresponding zodiac sign Refer to the constants  above for the zodiac values.   You may declare 
         //additional local variables if necessary, but you are not allowed to use pre-built APIs to accomplish 
         // the activity.
+       //1
+             switch (month){
+             case 2: if (day>=21) return ARIES; else return PISCES;
+             case 3: if (day>=20) return TAURUS; else return ARIES;
+             case 4: if (day>=21) return GEMINI; else return TAURUS;
+             case 5: if (day>=23) return CANCER; else return GEMINI;
+             case 6: if (day>=23) return LEO; else return CANCER;
+             case 7: if (day>=23) return VIRGO; else return LEO;
+             case 8: if (day>=23) return LIBRA; else return VIRGO;
+             case 9: if (day>=22) return SCORPIO; else return LIBRA;
+             case 10: if (day>=22) return SAGITTARIUS; else return SCORPIO;
+             case 11: if (day>=20) return CAPRICORN; else return SAGITTARIUS;             
+             case 0: if (day>=20) return AQUARIUS; else return CAPRICORN;
+             case 1: if (day>=19) return PISCES; else return AQUARIUS;
+             
+             }
+return null;
+      /*  if ((month>=3)&&(day>=21)&&(month<=4)&&(day<20)){
+        return ARIES;
+        }
+       
+        if ((month>=4)&&(day>=20)&&(month<=5)&&(day<20)){
+        return TAURUS;
+        }
+ 
+        if ((month>=5)&&(day>=21)&&(month<=6)&&(day<20)){
+        return GEMINI;
+        }
+       
+         if ((month>=6)&&(day>=21)&&(month<=7)&&(day<22)){
+        return CANCER;
+        }
+        
+         if ((month>=7)&&(day>=23)&&(month<=8)&&(day<22)){
+        return LEO;
+        }
+         if ((month>=8)&&(day>=23)&&(month<=9)&&(day<22)){
+        return VIRGO;
+        }
+         if ((month>=9)&&(day>=23)&&(month<=10)&&(day<22)){
+        return LIBRA;
+        }
+         if ((month>=10)&&(day>=23)&&(month<=11)&&(day<20)){
+        return ARIES;
+        }
+         if ((month>=11)&&(day>=22)&&(month<=12)&&(day<21)){
+        return SCORPIO;
+        
+        };
+        else return null;
+         if ((month>=12)&&(day>=22)&&(month<=1)&&(day<19)){
+        return SAGITTARIUS;
+        else return null;
+        }
+         if ((month>=1)&&(day>=22)&&(month<=2)&&(day<19)){
+        return CAPRICORN;
+        else return null;
+        }
+         if ((month>=2)&&(day>=20)&&(month<=3)&&(day<18)){
+        return AQUARIUS;
+        else return null;
+        }
+         if ((month>=3)&&(day>=22)&&(month<=4)&&(day<21)){
+        return PISCES;
+        else return null;
+        }
+       */
         
         //HINT: Research the 'return' keyword
         
@@ -107,7 +174,7 @@ public class Zodiac {
         
         
         // end solution 1.1        
-        return null;
+        //return null;
     }
     
     public String toString(){

@@ -10,7 +10,8 @@ package ats_jp.activity.cardgame;
 public class CardException extends Exception{
     
     public CardException(String message){
-        super(message);
+      
+      super(message);
     }
 
 }
