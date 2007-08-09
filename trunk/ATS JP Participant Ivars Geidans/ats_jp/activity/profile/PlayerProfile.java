@@ -206,7 +206,13 @@ public class PlayerProfile {
         
 
         //start solution 1.0
-      
+        
+        tempAge = currentYear - birthDateYear;
+        if(birthDateMonth > currentMonth) {
+        	tempAge--;
+        } else if(currentMonth == birthDateMonth && currentDayOfMonth < birthDayOfMonth) {
+        	tempAge--;
+        }
          
         // end solution 1.0
         return tempAge;
