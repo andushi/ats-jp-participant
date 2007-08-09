@@ -199,15 +199,24 @@ public class PlayerProfile {
         
         int tempAge=-1;
         
-        //TODO Activity 1.0
+         //TODO Activity 1.0
         //Compute the age in years, based on the values of the variables given above and assign
         //it to the variable 'tempAge'. You may declare additional local variables if necessary, but
         //you are not allowed to use pre-built APIs to accomplish the activity.
         
 
         //start solution 1.0
-      
-         
+        tempAge=currentYear-birthDateYear;
+        if (currentMonth<birthDateMonth) {
+        	tempAge--;
+        }
+        
+        if (currentMonth==birthDateMonth) {
+        	 if (currentDayOfMonth<birthDayOfMonth) {
+             	tempAge--;
+        	 }
+        }
+                                 
         // end solution 1.0
         return tempAge;
     }

@@ -105,9 +105,23 @@ public class Zodiac {
         
         //start solution 1.1
         
-        
+        switch (month) {
+        case 2: if (day>=21) return ARIES; else return PISCES;	
+        case 3: if (day>=20) return TAURUS; else return ARIES; 
+        case 4: if (day>=21) return GEMINI; else return TAURUS;
+        case 5: if (day>=21) return CANCER; else return GEMINI; 
+        case 6: if (day>=23) return LEO; else return CANCER;
+        case 7: if (day>=23) return VIRGO; else return LEO; 
+        case 8: if (day>=23) return LIBRA; else return VIRGO; 
+        case 9: if (day>=23) return SCORPIO; else return LIBRA; 
+        case 10: if (day>=22) return SAGITTARIUS; else return SCORPIO; 
+        case 11: if (day>=22) return CAPRICORN; else return SAGITTARIUS; 
+        case 0: if (day>=20) return AQUARIUS; else return CAPRICORN; 
+        case 1: if (day>=19) return PISCES; else return AQUARIUS; 
+        default: return null;
+        }
         // end solution 1.1        
-        return null;
+        //return null;
     }
     
     public String toString(){
