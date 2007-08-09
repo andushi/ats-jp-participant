@@ -50,9 +50,19 @@ public class ArrayStack extends AbstractArrayStore{
         }
         
         //start solution
-
-        return false;
+      int i;
+      boolean bResult=false;  
       
+      for (i=0;i<getCount();i++)
+        {
+    	  	bResult=store[i].equals(arg);
+			if (bResult==true) return false;
+		}
+      if (currentCount==store.length) return false;
+        store[currentCount]=arg;
+        currentCount++;
+        return true;
+        //end solution
     }
 
     public Object pop() {
@@ -65,8 +75,14 @@ public class ArrayStack extends AbstractArrayStore{
         //HINT: Remember that the bottom of the stack is index 0
       
         //start solution
-        
-         return null;
+    	Object store2;
+    	
+    	if (getCount()==0) return null;
+    	store2=store[currentCount-1];
+    	store[currentCount-1]=null;
+    	currentCount--;
+    	//end solution
+    	return store2;
 
     }
 
@@ -79,8 +95,9 @@ public class ArrayStack extends AbstractArrayStore{
         //HINT: Remember that the bottom of the stack is index 0
       
         //start solution
-        
-        return null;
+        if (getCount()==0) return null;
+        return store[currentCount-1];
+        //  return null;
     }
     
    
