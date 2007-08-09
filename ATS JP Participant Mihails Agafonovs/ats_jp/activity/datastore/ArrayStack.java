@@ -104,7 +104,6 @@ public class ArrayStack extends AbstractArrayStore{
         //HINT: Remember that the bottom of the stack is index 0
       
         //start solution
-    	int i=0;
     	
     	/*for (i=0; i<currentCount; i++){
     	 	if (store[i]!=null) max=max++;
@@ -115,9 +114,7 @@ public class ArrayStack extends AbstractArrayStore{
     	 else return store[currentCount-1];
 
     }
-    
-   
-    
+
     public boolean add(Object arg) {
         return push(arg);
     }
