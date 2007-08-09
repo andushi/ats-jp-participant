@@ -47,28 +47,17 @@ public class ArrayStack extends AbstractArrayStore{
         if(arg == null){
             throw new IllegalArgumentException("arraystack.method.argument.invalid");
         }
-        boolean bResult=false;
-      //  start solution
+ 
         for (i=0; i<getCount(); i++){
-        	bResult=store[i].equals(arg);
-        	if (bResult==true) return false;
-        }
+        	if (store[i].equals(arg)==true) return false;
+         }
         
         if (currentCount==store.length) return false;
         store[currentCount]=arg;
         currentCount++;
-        
-   //      if (store[currentCount]==arg) return false;
-  //      if (currentCount==store.length) return false;
-  //      if (currentCount==0) { store[0]=arg; currentCount++; return true;
-   //     }
-    //    else {store[currentCount]=arg; currentCount++;
-       
+
         return true;
         }
-
-  
-   
 
     public Object pop() {
 
@@ -80,18 +69,14 @@ public class ArrayStack extends AbstractArrayStore{
         //HINT: Remember that the bottom of the stack is index 0
       
         //start solution
-    	Object store2;
-    	/*for (i=0; i<currentCount; i++){
-    		if (store[currentCount]==null) return null ;
-    	 	if (store[i]!=null) max=max++;
-    	}*/
+    	Object returnStore;
+   
     	if (getCount()==0) return null;
-    	store2=store[currentCount-1];
- //   	if (store[currentCount-1]==null) return null;
+    	returnStore=store[currentCount-1];
     	store[currentCount-1]=null;
     	currentCount--;
       
-        return store2;
+        return returnStore;
 
     }
 
@@ -104,11 +89,7 @@ public class ArrayStack extends AbstractArrayStore{
         //HINT: Remember that the bottom of the stack is index 0
       
         //start solution
-    	
-    	/*for (i=0; i<currentCount; i++){
-    	 	if (store[i]!=null) max=max++;
-    		}
-    	*/
+  
     	 if (getCount()==0) return null;
     	
     	 else return store[currentCount-1];
