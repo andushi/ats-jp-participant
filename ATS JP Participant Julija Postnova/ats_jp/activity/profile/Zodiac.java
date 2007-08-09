@@ -45,8 +45,8 @@ public class Zodiac {
     public static final Zodiac AQUARIUS
         = new Zodiac(Calendar.JANUARY, 20, Calendar.FEBRUARY, 18, "Aquarius");
     public static final Zodiac PISCES
-        = new Zodiac(Calendar.FEBRUARY, 19, Calendar.MARCH, 20, "Sagittarius");
-    
+        = new Zodiac(Calendar.FEBRUARY, 19, Calendar.MARCH, 20, "Pisces");
+
  
     private Zodiac(int startMonth, int startDate, int endMonth, int endDate, String toString){
 
@@ -104,8 +104,56 @@ public class Zodiac {
         
         
         //start solution 1.1
-        
-        
+     
+            if (month==0 && day>=20)
+            	   return AQUARIUS;
+             else if (month==0 && day<20)
+              return  CAPRICORN;
+            if (month==1 && day>=19)
+            	  return PISCES;
+            else if (month==1 && day<19)
+                  return AQUARIUS;
+            if (month==2 && day>=21)
+                return ARIES;
+            else if (month==2 && day<21)
+                 return PISCES;
+            if (month==3 && day>=20)
+                return TAURUS;
+            else if (month==3 && day<20)
+               return ARIES;
+            if (month==4 && day>=21)
+                return GEMINI;
+            else if (month==4 && day<21)
+                   return TAURUS;
+            if (month==5 && day>=21)
+                return CANCER;
+            else if(month==5 && day<21)
+                 return GEMINI;
+            if (month==6 && day>=23)
+                return LEO;
+            else if (month==6 && day<23)
+                 return CANCER;
+            if (month==7 && day>=23)
+                return VIRGO;
+            else if (month==7 && day<23)
+                     return LEO;
+            if (month==8 && day>=23)
+                return LIBRA; 
+            else if (month==8 && day<23)
+                     return VIRGO;
+            if (month==9 && day>=23)
+                return SCORPIO;
+            else if (month==9 && day<23)
+                  return LIBRA;
+            if (month==10 && day>=22)
+                 return SAGITTARIUS;  
+            else if (month==10 && day<22)
+                 return SCORPIO;  
+            if (month==11 && day>=20)
+                 return CAPRICORN; 
+            else if (month==11 && day<20)
+                 return SAGITTARIUS;
+    
         // end solution 1.1        
         return null;
     }
