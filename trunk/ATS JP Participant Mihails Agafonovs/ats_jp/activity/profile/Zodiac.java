@@ -101,8 +101,7 @@ public class Zodiac {
         // the activity.
         
         //HINT: Research the 'return' keyword
-        
-        
+     
         //start solution 1.1
         
         switch (month) {

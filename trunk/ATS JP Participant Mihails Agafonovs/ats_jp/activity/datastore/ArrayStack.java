@@ -44,16 +44,26 @@ public class ArrayStack extends AbstractArrayStore{
    
         //HINT: Remember that the bottom of the stack is index 0
       
-      
+        int i=0;
+        int max=0;
         if(arg == null){
             throw new IllegalArgumentException("arraystack.method.argument.invalid");
         }
         
-        //start solution
-
-        return false;
-      
-    }
+      //  start solution
+       // for (i=0; i<currentCount; i++){
+        //	if (store[i]!=null) max=max++;
+     //   }
+        
+        if (store[currentCount]==arg) return false;
+        if (currentCount==store.length) return false;
+        if (currentCount==0) store[0]=arg;
+         store[currentCount+1]=arg;
+       
+        return true;
+        }
+  
+   
 
     public Object pop() {
 
@@ -65,7 +75,15 @@ public class ArrayStack extends AbstractArrayStore{
         //HINT: Remember that the bottom of the stack is index 0
       
         //start solution
-        
+    	int i=0, max=0;
+    	
+    	/*for (i=0; i<currentCount; i++){
+    		if (store[currentCount]==null) return null ;
+    	 	if (store[i]!=null) max=max++;
+    	}*/
+    	if (currentCount==null) return null;
+    	store[currentCount]=null;
+      
          return null;
 
     }
@@ -79,8 +97,16 @@ public class ArrayStack extends AbstractArrayStore{
         //HINT: Remember that the bottom of the stack is index 0
       
         //start solution
-        
-        return null;
+    	int i=0, max=0;
+    	
+    	/*for (i=0; i<currentCount; i++){
+    	 	if (store[i]!=null) max=max++;
+    		}
+    	*/
+    	 if (store[currentCount]==null) return null;
+    	
+    	 else return store[currentCount];
+
     }
     
    
