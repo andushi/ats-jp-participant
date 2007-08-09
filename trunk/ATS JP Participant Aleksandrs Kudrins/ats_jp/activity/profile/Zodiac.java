@@ -103,7 +103,32 @@ public class Zodiac {
         //HINT: Research the 'return' keyword
         
       //start solution 1.1
-        if (month==0)
+      switch (month){
+      case(0): if (day<20)return CAPRICORN;else return AQUARIUS;
+      case(1): if (day<19)return AQUARIUS; else return PISCES;
+      case(2): if (day<21) return PISCES; else return ARIES;
+      case(3): if (day<20)return ARIES; else return TAURUS;
+      
+      case(4): if (day<21) return TAURUS;else return GEMINI;
+      
+      case(5): if (day<21) return GEMINI; else return CANCER;
+      
+      case(6): if (day<23) return CANCER; else return LEO;
+      
+      case(7): if (day<23) return LEO; else return VIRGO;
+      
+      case(8): if (day<23) return VIRGO; else return LIBRA;
+      
+      case(9): if (day<23) return LIBRA; else return SCORPIO;
+      
+      case(10): if (day<22) return SCORPIO; else return SAGITTARIUS;
+      
+      case(11): if (day<22) return SAGITTARIUS; else return CAPRICORN;
+      
+    	  default: break;
+      }
+        
+        /*  if (month==0)
         {
         	if (day<20)return CAPRICORN;
         	else return AQUARIUS;
@@ -163,7 +188,7 @@ public class Zodiac {
         {
         	if (day<22) return SAGITTARIUS;
         	else return CAPRICORN;
-        }
+        }*/
         
         
         
