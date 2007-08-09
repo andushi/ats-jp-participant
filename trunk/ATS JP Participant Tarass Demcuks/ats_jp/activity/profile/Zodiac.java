@@ -94,6 +94,7 @@ public class Zodiac {
         int month  = birthDate.get(Calendar.MONTH); 			//month of birth
         int day =  birthDate.get(Calendar.DAY_OF_MONTH);		//date of birth
         
+        Zodiac tempZodiac = null;
         //TODO Activity 1.1
         //Given the current date, return the corresponding zodiac sign or null if the date does not have.
         //a corresponding zodiac sign Refer to the constants  above for the zodiac values.   You may declare 
@@ -101,13 +102,62 @@ public class Zodiac {
         // the activity.
         
         //HINT: Research the 'return' keyword
-        
+       
+        	
         
         //start solution 1.1
-        
-        
+        switch(month){
+    	case 0: 
+    		if (day >= 1 && day <= 19) tempZodiac = CAPRICORN;
+    		else if (day >= 20 && day <= 31) tempZodiac = AQUARIUS;
+    		break;
+    	case 1:
+    		if (day >= 1 && day <= 18) tempZodiac = AQUARIUS;
+    		else if (day >= 19 && day <= 28) tempZodiac = PISCES;
+    		break;
+    	case 2:
+    		if (day >= 1 && day <= 20) tempZodiac = PISCES;
+    		else if (day >= 21 && day <= 31) tempZodiac = ARIES;
+    		break;
+    	case 3:
+    		if (day >= 1 && day <= 19) tempZodiac = ARIES;
+    		else if (day >= 20 && day <= 30) tempZodiac = TAURUS;
+    		break;
+    	case 4:
+    		if (day >= 1 && day <= 20) tempZodiac = TAURUS;
+    		else if (day >= 21 && day <= 31) tempZodiac = GEMINI;
+    		break;
+    	case 5:
+    		if (day >= 1 && day <= 20) tempZodiac = GEMINI;
+    		else if (day >= 21 && day <= 30) tempZodiac = CANCER;
+    		break;
+    	case 6:
+    		if (day >= 1 && day <= 22) tempZodiac = CANCER;
+    		else if (day >= 23 && day <= 31) tempZodiac = LEO;
+    		break;
+    	case 7:
+    		if (day >= 1 && day <= 22) tempZodiac = LEO;
+    		else if (day >= 23 && day <= 31) tempZodiac = VIRGO;
+    		break;
+    	case 8:
+    		if (day >= 1 && day <= 22) tempZodiac = VIRGO;
+    		else if (day >= 23 && day <= 30) tempZodiac = LIBRA;
+    		break;
+    	case 9:
+    		if (day >= 1 && day <= 22) tempZodiac = LIBRA;
+    		else if (day >= 23 && day <= 31) tempZodiac = LIBRA;
+    		break;
+    	case 10:
+    		if (day >= 1 && day <= 21) tempZodiac = SCORPIO;
+    		else if (day >= 22 && day <= 30) tempZodiac = LIBRA;
+    		break;
+    	case 11:
+    		if (day >= 1 && day <= 21) tempZodiac = SAGITTARIUS;
+    		else if (day >= 22 && day <= 31) tempZodiac = LIBRA;
+    		break;
+    }
         // end solution 1.1        
-        return null;
+        return tempZodiac;
     }
     
     public String toString(){
