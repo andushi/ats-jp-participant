@@ -50,8 +50,8 @@ public abstract class AbstractArrayStore {
         
         //TODO Activity 2.0
         //Initialize the instance variable 'store' that it can hold a number of objects specified by DEFAULT_SIZE
-        
-        
+        store = new Object[DEFAULT_SIZE];
+      //  store[0]=
     }
     
     public AbstractArrayStore(int size){
@@ -59,8 +59,12 @@ public abstract class AbstractArrayStore {
         //TODO Activity 2.1 
         //Initialize the instance variable 'store' so that it can hold a number of objects specified by 'size'.
         //If the variable 'size' is in anyway illegal for an array, then use DEFAULT_SIZE instead
-        
-        
+
+        if (size<1){
+        	store = new Object[DEFAULT_SIZE];
+        } else { 
+        	store = new Object[size];
+        }
     }
     
     public boolean isEmpty() {
@@ -118,12 +122,15 @@ public abstract class AbstractArrayStore {
      
         //HINT: All objects have a method named equals() that returns a boolean. 
         //Ex: This tests if obj1 is "equal to" obj2
-        // if(obj1.equals(obj2)){
-        //    ...
-        // }
+         //if(obj1.equals(obj2)){
         
-         return NOT_IN_STRUCTURE;
-
+         //}
+        for(int i=0; i<getCount() ;i++ )
+    	 if (store[i].equals(arg))
+    		 return i;
+    		 
+    	   return NOT_IN_STRUCTURE;
+    	     
     }
     
     
@@ -139,8 +146,8 @@ public abstract class AbstractArrayStore {
         
         //TODO Activity 2.2 
         //Return the object inside 'store' at the array location specified by 'index'
-        
-        return null;
+    return store[index];
+      //  return null;
     }
 
    
