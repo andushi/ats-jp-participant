@@ -111,7 +111,7 @@ public class Zodiac {
         switch (month) { 
         case 0:	if (day > 19) {zodiac = AQUARIUS; }
         		if (day < 20) {zodiac = CAPRICORN; }
-        	 break;
+        	break;
         case 1:	if (day > 18) {zodiac = PISCES; }
 				if (day < 19) {zodiac = AQUARIUS; }
         	break;
@@ -135,13 +135,13 @@ public class Zodiac {
 			break;	
         case 8:	if (day > 22) {zodiac = LIBRA; }
 				if (day < 23) {zodiac = VIRGO; }
-				break;
+			break;
         case 9:	if (day > 22) {zodiac = SCORPIO; }
 				if (day < 23) {zodiac = LIBRA; }
-				break;
+			break;
         case 10:if (day > 22) {zodiac = SAGITTARIUS; }
 				if (day < 23) {zodiac = SCORPIO; }
-				break;
+			break;
         case 11:if (day > 22) {zodiac = CAPRICORN; }
 				if (day < 23) {zodiac = SAGITTARIUS; }
 		break;
