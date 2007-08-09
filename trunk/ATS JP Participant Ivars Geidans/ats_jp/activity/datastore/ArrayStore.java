@@ -28,7 +28,9 @@ public class ArrayStore extends AbstractArrayStore {
     }
     
     public boolean add(Object arg) {
-        if(isFull() || arg == null) 
+    	if(arg == null)
+    		throw new IllegalArgumentException();
+        if(isFull()) 
         	return false;
         
         store[getCount()] = arg;
@@ -38,26 +40,26 @@ public class ArrayStore extends AbstractArrayStore {
     }
     
     public boolean remove(Object arg) {
-    	if(isEmpty() || arg == null) 
+    	if(arg == null)
+    		throw new IllegalArgumentException();
+    	if(isEmpty()) 
         	return false;
-        
+    	
         int index = find(arg);
-        for(int i = index; i < currentCount; ++i)
-        	if(i == currentCount - 1)
-        		store[i] = null;
-        	else
-        		store[i] = store[i + 1];
-        currentCount--;
+        remove(index);
         
         return true;
     }
 
     public boolean insert(Object arg, int index) {
-    	if(isEmpty() || arg == null) 
+    	if(arg == null || index < 0)
+    		throw new IllegalArgumentException();
+    	if(isEmpty()) 
         	return false;
     	
-    	for(int i = index + 1; i < currentCount; ++i)
-        	store[i + 1] = store[i];
+    	for(int i = currentCount - 1; i >= index + 1; --i)
+        	if(i > 0)
+        		store[i] = store[i - 1];
         store[index] = arg;
     	currentCount++;
     	
@@ -67,12 +69,17 @@ public class ArrayStore extends AbstractArrayStore {
     public Object remove (int index) {
     	if(isEmpty()) 
     		return false;
-    
+    	
+    	System.out.println(index);
+    	
+    	Object obj = store[index];
     	for(int i = index; i < currentCount - 1; ++i)
-    		if(i == currentCount - 1)
+    		if(i != currentCount - 1)
     			store[i] = store[i + 1];
+    		else
+    			store[i] = null;
     	currentCount--;
     
-    	return true;
+    	return obj;
     }
 }
