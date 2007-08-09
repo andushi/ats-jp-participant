@@ -102,7 +102,7 @@ public class Zodiac {
         
         //HINT: Research the 'return' keyword
         
-      //start solution 1.1
+      //start solution 1.1      first variant!!!!
       switch (month){
       case(0): if (day<20)return CAPRICORN;else return AQUARIUS;
       case(1): if (day<19)return AQUARIUS; else return PISCES;
@@ -119,7 +119,7 @@ public class Zodiac {
       
       default: break;
       }
-        
+        //second variant!!!
         /*  if (month==0)
         {
         	if (day<20)return CAPRICORN;
