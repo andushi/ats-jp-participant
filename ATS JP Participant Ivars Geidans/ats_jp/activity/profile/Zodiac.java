@@ -122,8 +122,8 @@ public class Zodiac {
         };
         
         //Finding the correct zodiac.
-        for(Zodiac izodiac : zodiacs)
-        	if((month == izodiac.startMonth && day >= izodiac.startDate) ||
+        for (Zodiac izodiac : zodiacs)
+        	if ((month == izodiac.startMonth && day >= izodiac.startDate) ||
         					(month == izodiac.endMonth && day <= izodiac.endDate)) {
         		return izodiac;
         	}
