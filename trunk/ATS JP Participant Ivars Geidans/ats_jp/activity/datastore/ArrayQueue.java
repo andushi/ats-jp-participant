@@ -67,7 +67,6 @@ public class ArrayQueue extends AbstractArrayStore{
     }
 
     public Object dequeue() {
-        
         //TODO Activity 3.1
         //This removes the next object from the start of queue and returns it. If there is nothing to return
         //then return null. 
@@ -88,8 +87,7 @@ public class ArrayQueue extends AbstractArrayStore{
         return obj;
     }
 
-    public Object checkNext(){
-        
+    public Object checkNext(){     
         return store[first];
     }
     
@@ -99,7 +97,8 @@ public class ArrayQueue extends AbstractArrayStore{
         //TODO Activity 3.2
         //Compares 'arg' using the equals() method and returns its place relative to the start of the queue.
         //If there is no object in the queue that qualifies, then return NOT_IN_STRUCTURE.
-    	if (arg == null) throw new IllegalArgumentException();
+    	if (arg == null)
+    		throw new IllegalArgumentException();
     	
     	int index = NOT_IN_STRUCTURE; //Will return NIS if not found.
         	
@@ -156,4 +155,4 @@ public class ArrayQueue extends AbstractArrayStore{
         return enqueue(arg);
     }
 
-}   
+}
