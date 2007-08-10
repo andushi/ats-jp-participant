@@ -23,6 +23,8 @@ public class ArrayQueue extends AbstractArrayStore{
     
     //The index of the last object in the queue
     private int last;
+    
+    private int k=0;
    
     //HINT: In addition to the above variables, the array 'store' and the integer 'currentCount' are also
     //accessible by this class via inheritance.  The array 'store' is used to represent the queue, and the
@@ -51,13 +53,22 @@ public class ArrayQueue extends AbstractArrayStore{
             throw new IllegalArgumentException("arrayqueue.method.argument.invalid");
     	}  
     	
-    	for (i=0; i<getCount(); i++){
-        	if (store[i].equals(next)==true) return false;
+    	 for (i=0; i<getCount(); i++){
+        	if (store[i].equals(next)== true) return false;
          }
      
-    	if (currentCount==store.length) return false;
+    	//if (currentCount==store.length) return false;
+    	 if (getCount()==store.length) return false;
+    	 if (last>(store.length-1)) {
+    		 
+    		 last=+k;
+    		 k++;
+    		 store[k]=next;
+    	 }
+
+    	 store[last]=next;
     	
-    	 store[currentCount]=next;
+         last++;
          currentCount++;
      
         return true;
@@ -68,12 +79,21 @@ public class ArrayQueue extends AbstractArrayStore{
         //TODO Activity 3.1
         //This removes the next object from the start of queue and returns it. If there is nothing to return
         //then return null. 
-         
+        //int i=0; 
+    	
     	Object nextCopy;
     	if (getCount()==0) return null;
-    	nextCopy=store[currentCount-1];
-    	store[currentCount-1]=null;
-    	currentCount++;
+    	nextCopy=store[first];
+    	store[first]=null;
+    	first++;
+    	if (first>=store.length) first=0;
+    	currentCount--;
+    	//store[first]=null;
+    	//store[first]=;
+    	//store[last]=null;
+    	//last--;
+    	//if (last>store.length) return null;
+   
         return nextCopy;
     }
 
@@ -95,9 +115,17 @@ public class ArrayQueue extends AbstractArrayStore{
             throw new IllegalArgumentException("arrayqueue.method.argument.invalid");
     	} 
     	
-    	for (i=0; i<getCount(); i++){
-    		if (arg.equals(store[i])==true) return i;
-    	} else return NOT_IN_STRUCTURE;
+    	for (i=0; i<store.length; i++){
+    		if (store[i]==null) continue;
+    		if (last>(store.length)){
+       			store[k].equals(arg);
+       			return k;
+    		}
+    		if (store[i].equals(arg)){ 
+    			return i;
+    		}
+    	} 
+    	return NOT_IN_STRUCTURE;
     	
     }
 
@@ -127,10 +155,18 @@ public class ArrayQueue extends AbstractArrayStore{
         //TODO Activity 3.3
         //Find which object is currently at the specified index relative to the start of the queue.  
         //The start of the queue is index 0
-        
-        
-        return null;
-    }
+       //int i=0;
+       
+      // for (i=0; i<getCount(); i++){
+   		if ((index>(store.length-1)) || (index<0))
+           throw new IllegalArgumentException("arrayqueue.method.argument.invalid");
+   	 
+   		if (last>(store.length-1)){
+   			return store[index-first];
+   		}
+       return store[index]; 
+   }
+   
     
     
 
