@@ -1,17 +1,22 @@
+/*
+ * Created on Aug 9, 2007
+ * Accenture Riga Delivery Center
+ */
+
 package ats_jp.activity.cardgame;
 import ats_jp.activity.profile.*;
 import ats_jp.activity.datastore.*;
 
 public class CardPlayer extends PlayerProfile {
-	private int max;
 	private ArrayStore cards;
 	
+	//Initializing the new CardPlayer.
 	public CardPlayer(String str, char ch, int max) {
 		super(str, ch);
-		this.max = max;
 		cards = new ArrayStore(max);
 	}
-
+	
+	//Simply using ArrayStore methods.
 	public boolean addCard(Card card) {
 		return cards.add(card);
 	}
@@ -37,6 +42,6 @@ public class CardPlayer extends PlayerProfile {
 	}
 	
 	public int getMaxCardCount() {
-		return max;
+		return cards.getSize();
 	}
 }

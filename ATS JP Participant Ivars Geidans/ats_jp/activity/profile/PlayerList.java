@@ -1,3 +1,8 @@
+/*
+ * Created on Aug 9, 2007
+ * Accenture Riga Delivery Center
+ */
+
 package ats_jp.activity.profile;
 
 public class PlayerList {
