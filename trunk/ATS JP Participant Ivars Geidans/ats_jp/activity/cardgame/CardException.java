@@ -8,6 +8,7 @@
 package ats_jp.activity.cardgame;
 
 public class CardException extends Exception {
+    static final long serialVersionUID = 0;
     
     public CardException(String message){
         super(message);
