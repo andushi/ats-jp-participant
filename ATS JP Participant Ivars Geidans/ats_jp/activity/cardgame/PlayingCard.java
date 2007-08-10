@@ -79,9 +79,9 @@ public class PlayingCard implements Card, PlayingCardConsts {
 					card.getCardAttribute(1) == getCardAttribute(1)){
 				return true;
 			}
-		} catch(Exception e) {
-			//vareetu mest exceptionu uz augshu, bet tad
-			//testa programma nenem pretii
+		} catch(CardException e) {
+			//This method should throw it up bu then the
+			//test suite doesn't accept it.
 		}
 		return false;
 	}
