@@ -46,18 +46,36 @@ public class ArrayQueue extends AbstractArrayStore{
         //false otherwise.
         
         //If 'next' is a null object, throw an IllegalArgumentException with a descriptive message.
-       
-     
-         
-        return false;
+       if(next==null) throw new IllegalArgumentException("illegal.argument.exception");
+       if(!isFull()){ 
+    	    last++;
+    		last%=getSize();
+    		store[last]=next;
+    		if(isEmpty())first=last;    	  
+    	   currentCount++;
+    	   return true;
+       }          
+       return false;
     }
 
     public Object dequeue() {
         
         //TODO Activity 3.1
         //This removes the next object from the start of queue and returns it. If there is nothing to return
-        //then return null. 
-            
+        //then return null.     	 
+    	if(!isEmpty()){
+    		//ArrayQueue storeElement = new ArrayQueue();    	
+    		//if(getSize()==++first)first=0;
+    		//else ++first;    		
+    		//return storeElement;
+    		Object kautkas;
+    		kautkas = store[first];
+    		store[first]=null;    		
+    		++first;
+    		first%=getSize();
+    		--currentCount;
+    		return kautkas;    		
+    	}               
         return null;
     }
 
@@ -72,9 +90,28 @@ public class ArrayQueue extends AbstractArrayStore{
         //TODO Activity 3.2
         //Compares 'arg' using the equals() method and returns its place relative to the start of the queue.
         //If there is no object in the queue that qualifies, then return NOT_IN_STRUCTURE.
-        
-        
-        return NOT_IN_STRUCTURE;
+        /*for(int i=0;i<getSize();i++){
+        	if(store[i].equals(arg)){
+        		int skaits=0;
+        		for(int j=i;j<getSize();){
+        			if(store[j]==store[first])return skaits;
+        			if(j==getSize()-1)j=0;
+        			else ++j;
+        			++skaits;
+        		}        			
+        	}
+        }   */
+    	if(arg==null) throw new IllegalArgumentException("illegal.argument.exception");   		
+    	int skaits=0;
+    	for(int i=first;;skaits++){
+    		if(store[i].equals(arg)){
+    			return skaits;
+    		}
+    		++i;
+    		i%=getSize();   
+    		if(skaits>getSize())break;
+    	}
+        return NOT_IN_STRUCTURE;        
     }
 
      
@@ -102,10 +139,16 @@ public class ArrayQueue extends AbstractArrayStore{
         
         //TODO Activity 3.3
         //Find which object is currently at the specified index relative to the start of the queue.  
-        //The start of the queue is index 0
-        
-        
+        //The start of the queue is index 0    	
+    	if(getSize()<=index || index <0) throw new IllegalArgumentException("illegal.argument.exception");   		
+    	for(int i=first;i<getSize();index--){
+    		if(index==0)return store[i];
+    		i++;
+    		i%=getSize();
+        }    	
+                
         return null;
+        
     }
     
     
