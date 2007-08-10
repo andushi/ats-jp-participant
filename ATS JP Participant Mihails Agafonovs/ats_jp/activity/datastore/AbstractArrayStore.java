@@ -121,12 +121,13 @@ public abstract class AbstractArrayStore {
         //    ...
         // }
     	int i=0;
-    	for (i=0; i<DEFAULT_SIZE; i++){
+    	for (i=0; i<getCount(); i++){
     		if (store[i]==null) continue;
     		if ((store[i]).equals(arg)) return i;
-    		else  return NOT_IN_STRUCTURE;
+    		
     	};
-    	return i;
+    	return NOT_IN_STRUCTURE;
+    
             
     }
     
