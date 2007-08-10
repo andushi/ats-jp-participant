@@ -24,7 +24,7 @@ public class ArrayQueue extends AbstractArrayStore{
     //The index of the last object in the queue
     private int last;
     
-    private int k=0;
+    boolean k;
    
     //HINT: In addition to the above variables, the array 'store' and the integer 'currentCount' are also
     //accessible by this class via inheritance.  The array 'store' is used to represent the queue, and the
@@ -59,11 +59,8 @@ public class ArrayQueue extends AbstractArrayStore{
      
     	//if (currentCount==store.length) return false;
     	 if (getCount()==store.length) return false;
-    	 if (last>(store.length-1)) {
-    		 
-    		 last=+k;
-    		 k++;
-    		 store[k]=next;
+    	 if (last>(store.length-1)) { 
+       		last=0;
     	 }
 
     	 store[last]=next;
@@ -110,24 +107,25 @@ public class ArrayQueue extends AbstractArrayStore{
         //If there is no object in the queue that qualifies, then return NOT_IN_STRUCTURE.
         
     	int i=0;
-    	
+    	boolean bResult;
     	if(arg == null){
             throw new IllegalArgumentException("arrayqueue.method.argument.invalid");
     	} 
-    	
-    	for (i=0; i<store.length; i++){
-    		if (store[i]==null) continue;
-    		if (last>(store.length)){
-       			store[k].equals(arg);
-       			return k;
-    		}
-    		if (store[i].equals(arg)){ 
-    			return i;
-    		}
-    	} 
+    	int j=first;
+    	for (i=0; i<currentCount; i++, j++){
+    		
+    		if (j>=getSize()) j=0;
+    		
+       			if (store[j].equals(arg)) return i;
+       			//if (bResult==true) return i;
+    		
+    	}
+    		//if (store[i].equals(arg)){ 
+    		//	return i;
+    		//}
     	return NOT_IN_STRUCTURE;
-    	
     }
+    	
 
      
     public void  clear() {
