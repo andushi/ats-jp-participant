@@ -31,7 +31,9 @@ interface PlayingCardConsts {
 		KING = 13;
 }
 
-public class PlayingCard implements Card, PlayingCardConsts {
+//Making class final so that mutable extending
+//classes can not be created.
+public final class PlayingCard implements Card, PlayingCardConsts {
 	
 	private int rank, suit;
 	
