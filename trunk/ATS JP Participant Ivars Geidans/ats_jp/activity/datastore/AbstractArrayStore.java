@@ -50,7 +50,7 @@ public abstract class AbstractArrayStore {
         
         //TODO Activity 2.0
         //Initialize the instance variable 'store' that it can hold a number of objects specified by DEFAULT_SIZE
-        store = new Object[DEFAULT_SIZE];
+    	store = new Object[DEFAULT_SIZE];
         
     }
     
@@ -59,7 +59,7 @@ public abstract class AbstractArrayStore {
         //TODO Activity 2.1 
         //Initialize the instance variable 'store' so that it can hold a number of objects specified by 'size'.
         //If the variable 'size' is in anyway illegal for an array, then use DEFAULT_SIZE instead
-        if(size < 1)
+        if (size < 1)
         	size = DEFAULT_SIZE;
         store = new Object[size];
         
@@ -67,7 +67,7 @@ public abstract class AbstractArrayStore {
     
     public boolean isEmpty() {
         
-        if(getCount() == 0){
+        if (getCount() == 0){
             return true;
         }
         
@@ -125,18 +125,20 @@ public abstract class AbstractArrayStore {
         // }
     	int i, index = NOT_IN_STRUCTURE;
     	
-        for(i = 0; i < store.length; ++i) {
-        	if(arg.equals(store[i]))
+    	//Finding the element.
+        for (i = 0; i < store.length; ++i) {
+        	if (arg.equals(store[i]))
         		index = i;
         }
-
+        
+        //Returning the index or NIS if not found.
         return index;
     }
     
     
     public boolean contains(Object arg) {
 
-            if(find(arg) != NOT_IN_STRUCTURE){
+            if (find(arg) != NOT_IN_STRUCTURE){
                 return true;
             }
            return false;
