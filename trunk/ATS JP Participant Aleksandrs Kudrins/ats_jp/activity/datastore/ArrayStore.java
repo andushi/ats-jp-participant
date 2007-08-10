@@ -26,5 +26,38 @@ public class ArrayStore extends AbstractArrayStore {
     public ArrayStore(){
         super();
     }
-  
+    
+    public boolean add(Object arg){
+    
+    	if(arg == null)
+            throw new IllegalArgumentException("arraystack.method.argument.invalid");
+    	
+    	if (currentCount==store.length) return false;
+    	store[currentCount]=arg;
+    	currentCount++;
+    	return true;
+    }
+    public boolean remove(Object arg){
+    	
+    	Object store2[];
+   
+    	if(arg == null)
+            throw new IllegalArgumentException("arraystack.method.argument.invalid");
+     	int i=0,k=0,l=0;
+     	for(i=0;i<currentCount;i++)
+     	{
+     		if (store[i].equals(arg)){ 
+     			store[i]=null;
+     			 for(k=0;k<getSize();k++){
+     				 if (store[k]!=null){
+     					 store2[l]=store[k];
+     					 l++;
+     				 }
+     			 }
+     		store=store2;
+     		return true;
+     		}
+     	}
+     	return false;
+    	}
 }
