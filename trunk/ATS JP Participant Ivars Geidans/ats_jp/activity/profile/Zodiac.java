@@ -104,25 +104,28 @@ public class Zodiac {
         
         
         //start solution 1.1
-        Zodiac zodiacs[] = new Zodiac[12];
         
-        zodiacs[0] = ARIES;
-        zodiacs[1] = TAURUS;
-        zodiacs[2] = GEMINI;
-        zodiacs[3] = CANCER;
-        zodiacs[4] = LEO;
-        zodiacs[5] = VIRGO;
-        zodiacs[6] = LIBRA;
-        zodiacs[7] = SCORPIO;
-        zodiacs[8] = SAGITTARIUS;
-        zodiacs[9] = CAPRICORN;
-        zodiacs[10] = AQUARIUS;
-        zodiacs[11] = PISCES;
+        //Creating an array of provided constants
+        Zodiac zodiacs[] = {
+        		ARIES,
+        		TAURUS,
+        		GEMINI,
+        		CANCER,
+        		LEO,
+        		VIRGO,
+        		LIBRA,
+        		SCORPIO,
+        		SAGITTARIUS,
+        		CAPRICORN,
+        		AQUARIUS,
+        		PISCES
+        };
         
-        for(int i=0;i<12;++i)
-        	if((month == zodiacs[i].startMonth && day >= zodiacs[i].startDate) ||
-        					(month == zodiacs[i].endMonth && day <= zodiacs[i].endDate)) {
-        		return zodiacs[i];
+        //Finding the correct zodiac.
+        for(Zodiac izodiac : zodiacs)
+        	if((month == izodiac.startMonth && day >= izodiac.startDate) ||
+        					(month == izodiac.endMonth && day <= izodiac.endDate)) {
+        		return izodiac;
         	}
         
         return null;
