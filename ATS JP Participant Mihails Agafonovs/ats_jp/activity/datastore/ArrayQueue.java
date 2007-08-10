@@ -46,10 +46,21 @@ public class ArrayQueue extends AbstractArrayStore{
         //false otherwise.
         
         //If 'next' is a null object, throw an IllegalArgumentException with a descriptive message.
-       
+    	int i=0;
+    	if(next == null){
+            throw new IllegalArgumentException("arrayqueue.method.argument.invalid");
+    	}  
+    	
+    	for (i=0; i<getCount(); i++){
+        	if (store[i].equals(next)==true) return false;
+         }
      
-         
-        return false;
+    	if (currentCount==store.length) return false;
+    	
+    	 store[currentCount]=next;
+         currentCount++;
+     
+        return true;
     }
 
     public Object dequeue() {
@@ -57,8 +68,13 @@ public class ArrayQueue extends AbstractArrayStore{
         //TODO Activity 3.1
         //This removes the next object from the start of queue and returns it. If there is nothing to return
         //then return null. 
-            
-        return null;
+         
+    	Object nextCopy;
+    	if (getCount()==0) return null;
+    	nextCopy=store[currentCount-1];
+    	store[currentCount-1]=null;
+    	currentCount++;
+        return nextCopy;
     }
 
     public Object checkNext(){
@@ -73,8 +89,16 @@ public class ArrayQueue extends AbstractArrayStore{
         //Compares 'arg' using the equals() method and returns its place relative to the start of the queue.
         //If there is no object in the queue that qualifies, then return NOT_IN_STRUCTURE.
         
-        
-        return NOT_IN_STRUCTURE;
+    	int i=0;
+    	
+    	if(arg == null){
+            throw new IllegalArgumentException("arrayqueue.method.argument.invalid");
+    	} 
+    	
+    	for (i=0; i<getCount(); i++){
+    		if (arg.equals(store[i])==true) return i;
+    	} else return NOT_IN_STRUCTURE;
+    	
     }
 
      
