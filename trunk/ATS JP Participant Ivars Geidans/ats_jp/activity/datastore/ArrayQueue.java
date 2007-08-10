@@ -141,8 +141,8 @@ public class ArrayQueue extends AbstractArrayStore{
         //The start of the queue is index 0
         
     	//Checking if index is legal.
-    	if ((index < 0) || (index > getSize()) ||
-    			(index - first + getSize()) % getSize() >= getCount())
+    	if ((index < 0) || (index > getSize() || 
+    			(index - first + getSize()) % getSize() >= getCount()))
     		throw new IllegalArgumentException();
     	
     	//Returning the element.
