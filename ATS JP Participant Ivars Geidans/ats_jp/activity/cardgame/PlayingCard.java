@@ -99,14 +99,14 @@ public final class PlayingCard implements Card, PlayingCardConsts {
 	public Object getCardAttribute(int attribute) throws CardException {
 		switch(attribute) {
 		//Integer representations.
-		case 0:
+		case RANK:
 			return getRank();
-		case 1:
+		case SUIT:
 			return getSuit();
 		//String representations.
-		case 2:
+		case STR_RANK:
 			return strrep[rank - 1];
-		case 3:
+		case STR_SUIT:
 			return strrep[suit - 1];
 		//No such attribute!
 		default:
