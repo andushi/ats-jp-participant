@@ -18,7 +18,7 @@ public class Driver7x extends BaseDriver{
     public void initialize() {
     	
         deck = new SimpleDeck();
-        card = deck.card;
+        card = deck.store;
     }
 
 
