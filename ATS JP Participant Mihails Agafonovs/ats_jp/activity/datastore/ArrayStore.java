@@ -26,5 +26,90 @@ public class ArrayStore extends AbstractArrayStore {
     public ArrayStore(){
         super();
     }
+    
+    public boolean add(Object arg) {
+    	if(arg==null){
+            throw new IllegalArgumentException("arrayqueue.method.argument.invalid");
+    	}
+    	if (isFull()) return false;
+    	store[getCount()]=arg;
+    	currentCount++;
+        return true;
+    }
+    
+    public boolean remove(Object arg) {
+    	int i=0;
+    	int k=0;
+    	
+    	if(arg==null){
+            throw new IllegalArgumentException("arrayqueue.method.argument.invalid");
+    	}
+    	if (isEmpty()) return false;
+    	for (i=0; i<getSize(); i++) {
+    		if (store[i].equals(arg)) {
+    			store[i]=null;
+    			k=i;
+    			currentCount--;
+    		}
+    	}
+    			do {
+    			store[getSize()-k]=store[getSize()-k-1];
+    			k++;
+     			}
+    			while (store[currentCount]!=null);
+    	return true;
+    }
+    
+    public Object remove(int index) {
+    	Object copyStore;
+    	copyStore=store[index];
+    	store[index]=null;
+    	currentCount--;
+    	do {
+			store[index]=store[index+1];
+			index++;
+ 			}
+			while (store[currentCount]!=null);
+    	return copyStore;
+    }
+    
+   public boolean insert(Object arg, int index) {
+	   if (isFull()) return false;
+	   if((arg==null) || (index<0) || (index>getSize())){
+           throw new IllegalArgumentException("arrayqueue.method.argument.invalid");
+	   }
+	   store[index]=arg;
+	   return true;
+   	
+	   
+   }
+    
+   public int getCount(){
+        
+        return currentCount;
+    }
+   
+   public int getSize(){
+       
+       return store.length;
+   }
+    
+   public boolean isEmpty() {
+       
+       if(getCount() == 0){
+           return true;
+       }
+       
+       return false;    
+   }
+   
+   public boolean isFull() {
+
+       if (currentCount == store.length) {
+           return true;
+       } else {
+           return false;
+       }
+   }
   
 }

@@ -107,7 +107,6 @@ public class ArrayQueue extends AbstractArrayStore{
         //If there is no object in the queue that qualifies, then return NOT_IN_STRUCTURE.
         
     	int i=0;
-    	boolean bResult;
     	if(arg == null){
             throw new IllegalArgumentException("arrayqueue.method.argument.invalid");
     	} 
