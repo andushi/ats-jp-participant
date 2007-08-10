@@ -22,7 +22,7 @@ public class ArrayQueue extends AbstractArrayStore{
     private int first;
     
     //The index of the last object in the queue
-    private int last;
+    private int last=-1;
    
     //HINT: In addition to the above variables, the array 'store' and the integer 'currentCount' are also
     //accessible by this class via inheritance.  The array 'store' is used to represent the queue, and the
@@ -47,9 +47,21 @@ public class ArrayQueue extends AbstractArrayStore{
         
         //If 'next' is a null object, throw an IllegalArgumentException with a descriptive message.
        
-     
-         
-        return false;
+    	if (next == null)throw new IllegalArgumentException();
+    	if (isFull()/*| store[currentCount-1]== next*/) {return false;}
+    	//if (getCount() == getSize()/*| store[currentCount-1]== next*/) {return false;}
+    	//if (next == null){throw new IllegalArgumentException();}
+    	
+    		    		
+    	store[(last+1)%getSize()]=next;
+    	
+    	currentCount++;
+    		
+    	last=(last+1)%getSize();
+    	
+    	return true;
+    	
+       
     }
 
     public Object dequeue() {
@@ -58,7 +70,23 @@ public class ArrayQueue extends AbstractArrayStore{
         //This removes the next object from the start of queue and returns it. If there is nothing to return
         //then return null. 
             
-        return null;
+    	
+    	Object a;
+    	
+    	if (isEmpty()) {return null;}
+    	
+    	a=store[first];
+    	
+    	store[first]=null;
+    	
+    	first=(first+1)%getSize();
+    	
+    	currentCount--;
+    	
+    	return a;
+	
+		 
+
     }
 
     public Object checkNext(){
@@ -74,14 +102,35 @@ public class ArrayQueue extends AbstractArrayStore{
         //If there is no object in the queue that qualifies, then return NOT_IN_STRUCTURE.
         
         
-        return NOT_IN_STRUCTURE;
+    	if (arg == null)throw new IllegalArgumentException();
+    	
+    	int i; 
+    	i=first; 
+    	
+    	int c; 
+    	c=NOT_IN_STRUCTURE;
+    	if (isEmpty()) return c;
+    	
+    	do {
+    		if(store[i].equals(arg)) {
+    			c = (i - first + getSize())%getSize();
+    			break;
+    		}
+    		i=(i+1)%getSize();
+    	} while (i!=last);
+    			
+    								//if (i>first) {c=i-first;}
+    								//c=i-first+getSize();
+    								//return c;    		
+    								//} 
+    return c;
     }
 
      
     public void  clear() {
         
         first = 0;
-        last = 0;
+        last = -1;
         
         store = new Object[store.length];
     }
@@ -99,13 +148,16 @@ public class ArrayQueue extends AbstractArrayStore{
     
     public Object check(int index) {
         
-        
         //TODO Activity 3.3
         //Find which object is currently at the specified index relative to the start of the queue.  
         //The start of the queue is index 0
         
+    	if (index<0 | index>getSize()) {throw new IllegalArgumentException();}
+    	if (isEmpty()) return null;
         
-        return null;
+    	Object b = store[(index + first)%getSize()];
+        
+        return b;
     }
     
     
