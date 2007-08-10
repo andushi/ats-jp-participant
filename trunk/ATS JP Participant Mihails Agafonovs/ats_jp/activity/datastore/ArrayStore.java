@@ -28,6 +28,7 @@ public class ArrayStore extends AbstractArrayStore {
     }
     
     public boolean add(Object arg) {
+    	
     	if(arg==null){
             throw new IllegalArgumentException("arrayqueue.method.argument.invalid");
     	}
@@ -38,6 +39,7 @@ public class ArrayStore extends AbstractArrayStore {
     }
     
     public boolean remove(Object arg) {
+    	
     	int i=0;
     	int k=0;
     	
@@ -45,7 +47,7 @@ public class ArrayStore extends AbstractArrayStore {
             throw new IllegalArgumentException("arrayqueue.method.argument.invalid");
     	}
     	if (isEmpty()) return false;
-    	for (i=0; i<getCount(); i++) {
+    	for (i=0; i<(getCount()-1); i++) {
     		if (store[i].equals(arg)) {
     			store[i]=null;
     			k=i;
@@ -65,11 +67,13 @@ public class ArrayStore extends AbstractArrayStore {
     }
     
     public Object remove(int index) {
+    	
     	Object copyStore;
     	int i=0;
-    	 if((index<0) || (index>getSize())){
-             throw new IllegalArgumentException("arrayqueue.method.argument.invalid");
-  	   }
+    	 //if(){
+      //       throw new IllegalArgumentException("arrayqueue.method.argument.invalid");
+  	  // }
+    	// if (index<0) || (index>getSize()) return null;
     	copyStore=store[index];
     	store[index]=null;
     	for (i=index; i<(getCount()-1); i++) {
@@ -86,13 +90,15 @@ public class ArrayStore extends AbstractArrayStore {
     }
     
    public boolean insert(Object arg, int index) {
+	   
 	   if (isFull()) return false;
-	   if((arg==null) || (index<0) || (index>getSize())){
+	   if((arg==null) || (index<0) || (index>(getSize()-1))){
            throw new IllegalArgumentException("arrayqueue.method.argument.invalid");
 	   }
 	   if (store[index]==null) currentCount++;
 	   store[index]=null;
 	   store[index]=arg;
+	   currentCount++;
 	   return true;
    	
 	   
