@@ -98,12 +98,6 @@ public class ArrayQueue extends AbstractArrayStore{
  		if (arg==null)
     		throw new IllegalArgumentException	("IllegalArgumentException");
   
- 	  /*    for (i=0;i<store.length;i++){
- 	    	  if (store[i]!=null){
- 	    		  bResult=store[i].equals(arg);
- 	    		  if (bResult==true) return i;
- 	    	  }
- 	      }*/
  		for (i=0;i<currentCount;i++,k++)
  		{
 			if (k==getSize()) k=0;
@@ -141,7 +135,7 @@ public class ArrayQueue extends AbstractArrayStore{
         //TODO Activity 3.3
         //Find which object is currently at the specified index relative to the start of the queue.  
         //The start of the queue is index 0
-//    	try{
+
 		if (index>=store.length || index<=-1){
     		throw new IllegalArgumentException	("IllegalArgumentException");
     	}  	
