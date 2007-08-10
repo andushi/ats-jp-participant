@@ -45,15 +45,17 @@ public class ArrayStack extends AbstractArrayStore{
         //HINT: Remember that the bottom of the stack is index 0
       
       
-        if(arg == null){
+        if (arg == null){
             throw new IllegalArgumentException("arraystack.method.argument.invalid");
         }
         
         //start solution
-        if(isFull() || find(arg) != -1) {
+        //Checking fullness and uniqueness.
+        if (isFull() || contains(arg)) {
         	return false;
         }
         
+        //Adding element to the top
         store[getCount()] = arg;
         currentCount++;
         
@@ -72,16 +74,21 @@ public class ArrayStack extends AbstractArrayStore{
       
         //start solution
         
-    	if(getCount() == 0) {
+    	//Checking emptiness.
+    	if (getCount() == 0) {
     		return null;
     	}
     	
-    	int i = currentCount - 1;
-    	
-        Object obj =  store[i];
-        store[i] = null;
+    	//Temporary variable.
+        Object obj =  store[currentCount - 1];
         
+        //Deleting the reference to the element
+        store[currentCount - 1] = null;
+        
+        //Decreasing element count;
         currentCount--;
+        
+        //Returning the removed object;
     	return obj;
     }
 
@@ -95,10 +102,12 @@ public class ArrayStack extends AbstractArrayStore{
       
         //start solution
         
-    	if(getCount() == 0) {
+    	//Checking emptiness.
+    	if (getCount() == 0) {
     		return null;
     	}
         
+    	//Returning the top element.
     	return store[getCount() - 1];
     }
     
@@ -107,7 +116,5 @@ public class ArrayStack extends AbstractArrayStore{
     public boolean add(Object arg) {
         return push(arg);
     }
-
-
 
 }
