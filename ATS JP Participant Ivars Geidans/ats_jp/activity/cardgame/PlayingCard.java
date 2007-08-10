@@ -1,5 +1,7 @@
 package ats_jp.activity.cardgame;
 
+//todo: immutable
+
 public class PlayingCard implements Card {
 	public static final int RANK = 0,
 					  		SUIT = 1,
