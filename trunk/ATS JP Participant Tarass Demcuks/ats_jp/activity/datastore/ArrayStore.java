@@ -27,4 +27,60 @@ public class ArrayStore extends AbstractArrayStore {
         super();
     }
   
+    public boolean add(Object arg) {
+    	if (arg == null)
+    		throw new IllegalArgumentException();
+        if (isFull()) 
+        	return false;
+        
+        store[getCount()] = arg;
+        currentCount++;
+        return true;
+    }
+    
+    public boolean remove(Object arg) {
+    	if (arg == null)
+    		throw new IllegalArgumentException();
+    	if (isEmpty()) 
+        	return false;
+    	
+        int index = find(arg);
+        if (index == NOT_IN_STRUCTURE)
+        	return false;
+        
+        remove(index);
+        return true;
+    }
+
+    public Object remove (int index) {
+    	if (isEmpty()) 
+    		return false;
+    	
+    	Object obj = store[index];
+    	
+    	for (int i = index; i < currentCount - 1; ++i)
+    		if (i != currentCount - 1)
+    			store[i] = store[i + 1];
+    		else
+    			store[i] = null;
+    	currentCount--;
+    
+    	return obj;
+    }
+    
+    public boolean insert(Object arg, int index) {
+    	if (arg == null || index < 0)
+    		throw new IllegalArgumentException();
+    	if (isEmpty()) 
+        	return false;
+    	
+    	for (int i = currentCount - 1; i >= index + 1; --i)
+        	if (i > 0)
+        		store[i] = store[i - 1];
+        
+    	store[index] = arg;
+    	currentCount++;
+    	
+    	return true;
+    }
 }
