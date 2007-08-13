@@ -60,10 +60,9 @@ public abstract class AbstractArrayStore {
         //Initialize the instance variable 'store' so that it can hold a number of objects specified by 'size'.
         //If the variable 'size' is in anyway illegal for an array, then use DEFAULT_SIZE instead
     	
-    	store = new Object [size];
-        if (size < 1) 
-        {store = new Object [DEFAULT_SIZE];}
-    	
+    	if (size < 1) 
+        {size = DEFAULT_SIZE;}
+        store = new Object [size];
     }
     
     public boolean isEmpty() {
@@ -126,7 +125,7 @@ public abstract class AbstractArrayStore {
         // }
         int i, index=NOT_IN_STRUCTURE;
         
-        for(i=0; i > store.length; i++) {
+        for(i=0; i < store.length; ++i) {
           if (arg.equals(store[i])) 
         	  index = i;
           }
