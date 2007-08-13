@@ -69,7 +69,7 @@ public class ArrayStore extends AbstractArrayStore {
     }
     
     public boolean insert(Object arg, int index) {
-    	if (arg == null || index < 0)
+    	if (arg == null || index < 0 || index > currentCount - 1)
     		throw new IllegalArgumentException();
     	if (isEmpty()) 
         	return false;
