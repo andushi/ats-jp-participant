@@ -10,7 +10,7 @@ public class CardPlayer extends PlayerProfile {
 	int Maxcount;
 	public CardPlayer(String name, char str, int count){
 		super(name,str);
-		int counterID;
+	//	int counterID;
 		Maxcount=count;
 		 inHand = new Card[count];
 	}
