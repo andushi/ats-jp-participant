@@ -26,7 +26,7 @@ public class CardPlayer extends PlayerProfile {
 	}
 	
 	public Card removeCard(int i) {
-		return  (Card)cards.remove(i);
+		return (Card)cards.remove(i);
 	}
 	
 	public boolean isFull() {
