@@ -56,12 +56,7 @@ public class ArrayStore extends AbstractArrayStore {
     	for (i=k; i<(getCount()-1); i++) {
     		store[i]=store[i+1];
     	}
-    	/*		do {
-    			store[getSize()-k]=store[getSize()-k-1];
-    			k--;
-     			}
-    			while (store[currentCount]!=null); 
-    	*/
+  
     	currentCount--;
     	return true;
     }
@@ -70,21 +65,13 @@ public class ArrayStore extends AbstractArrayStore {
     	
     	Object copyStore;
     	int i=0;
-    	 //if(){
-      //       throw new IllegalArgumentException("arrayqueue.method.argument.invalid");
-  	  // }
-    	// if (index<0) || (index>getSize()) return null;
+    
     	copyStore=store[index];
     	store[index]=null;
     	for (i=index; i<(getCount()-1); i++) {
     		store[i]=store[i+1];
     	}
-    	/*do {
-			store[getSize()-index]=store[getSize()-index-1];
-			index--;
- 			}
-			while (store[currentCount]!=null);
-			*/
+    
     	currentCount--;
     	return copyStore;
     }
@@ -100,36 +87,7 @@ public class ArrayStore extends AbstractArrayStore {
 	   store[index]=arg;
 	   currentCount++;
 	   return true;
-   	
 	   
    }
     
-   public int getCount(){
-        
-        return currentCount;
-    }
-   
-   public int getSize(){
-       
-       return store.length;
-   }
-    
-   public boolean isEmpty() {
-       
-       if(getCount() == 0){
-           return true;
-       }
-       
-       return false;    
-   }
-   
-   public boolean isFull() {
-
-       if (currentCount == store.length) {
-           return true;
-       } else {
-           return false;
-       }
-   }
-  
 }
