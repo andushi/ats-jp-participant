@@ -19,6 +19,7 @@ public class PlayerList {
 		if (bresult==true) return false;
 	}
 	list[index]=Profile;
+	index++;
 	return true;
 	}
 	
@@ -38,9 +39,37 @@ public class PlayerList {
 		for (k=0;k<list.length;k++){
 			bResult = list.equals(name);
 			if (bResult==true) {
-				profile[l]=
+				profile[l]=list[k];
+				l++;
 			}
 		}
+		return profile;
 	}
-
+	public PlayerProfile[] getAll(){
+		return list;
+	}
+	public int getPlayerCount(){
+		return index;
+	}
+	public int getMaxPlayerCount(){
+	
+		return list.length;
+	}
+	public PlayerProfile removePlayer(int id){
+		PlayerProfile[] profile;
+		PlayerProfile profile2;
+		int i,l=0;
+		profile = new PlayerProfile[list.length];
+		if (list[id]==null) return null;
+		index--;
+		profile2=list[id];
+		for (i=0;i<index;i++){
+			if (list[i]!=null){
+				profile[l]=list[i];
+				l++;
+			}
+		}
+		list=profile;
+		return profile2;
+	}
 }
