@@ -10,7 +10,7 @@ public abstract class CardDeck {
 	public CardDeck()
 	{ 
 		store=new ArrayStore(100) ;
-		
+		initializeDeck();
 	}
 		
 	public Card getCard()
@@ -48,6 +48,9 @@ public abstract class CardDeck {
 	{ 
 	return store.getCount();
 	
+	}
+	public int getCurrentCount() {
+		return store.getCount();
 	}
 
 }
