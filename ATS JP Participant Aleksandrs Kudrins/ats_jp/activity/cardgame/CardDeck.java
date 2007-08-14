@@ -14,7 +14,7 @@ public abstract class CardDeck {
 		
 		if (index!=0){
 		index--;
-		return CardDeck.get((int)Math.round(index * Math.random()));
+		return CardDeck.get((int)Math.round(Math.random()));
 		}
 		return null;
 	}
