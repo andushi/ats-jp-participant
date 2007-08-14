@@ -67,7 +67,7 @@ public class PlayerList {
 	}
 	
 	public PlayerProfile[] getAll() {
-		System.out.println(pcount);
+
 		PlayerProfile[] pps2 = new PlayerProfile[pcount];
 		for(int i = 0; i < pcount; ++i)
 			pps2[i] = playerProfiles[i];
