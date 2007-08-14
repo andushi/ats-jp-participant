@@ -9,13 +9,14 @@ public class SimpleDeck extends CardDeck{
 		   
 		
         card = new SimpleCard[6];
+        
         for(int i = 0; i < 6; i++){
             card[i] = new SimpleCard();
             card[i].cardAttribute=i;
         }
         
 		   for(int i =0; i < 5; i ++){             
-            store.add(card[i]);
+            put(card[i]);
             
         }		
 	}
