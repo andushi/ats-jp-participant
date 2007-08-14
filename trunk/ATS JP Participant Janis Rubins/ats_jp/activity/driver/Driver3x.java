@@ -75,7 +75,7 @@ public class Driver3x extends BaseDriver{
         
             System.out.println("Null entering queue");
             try{
-                q.enqueue(null);
+                q.enqueue(null); // Skatit
                 compare.fail("IllegalArgumentException expected", "No exception thrown");
             }catch(Exception ex){
                 compare.compare("null entered", IllegalArgumentException.class.getName(), ex.getClass().getName());

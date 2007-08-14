@@ -1,4 +1,5 @@
 package ats_jp.activity.driver;
+
 import ats_jp.activity.cardgame.CardDeck;
 
 public class SimpleDeck extends CardDeck{
