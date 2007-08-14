@@ -36,7 +36,7 @@ public abstract class CardDeck {
 		
 		return null;
 	}
-	public boolean put(Card card1){
+	public boolean put(Card card1) throws IllegalArgumentException{
 		if(card1 == null)
             throw new IllegalArgumentException("arraystack.method.argument.invalid");
 	
