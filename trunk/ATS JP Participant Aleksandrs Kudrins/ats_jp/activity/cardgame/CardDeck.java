@@ -1,38 +1,36 @@
 package ats_jp.activity.cardgame;
+import java.util.*;
 
 public abstract class CardDeck {
-	Card[] CardDeck;
-	int index;
-	int max;
-	protected abstract void initializeDeck();
-	public CardDeck(){
-		Card[] CardDeck;
-		CardDeck = new Card[max];
+	 private List<Card> CardDeck;
+	 private int index;
+	 protected abstract void initializeDeck();
+	 public CardDeck(){
+
+		CardDeck = new ArrayList<Card>();
 		initializeDeck();
-		index++;
 	}
 	public Card getCard(){
-		if (index==0) return null;
 		
+		if (index!=0){
+		index--;
+		return CardDeck.get((int)Math.round(index * Math.random()));
+		}
+		return null;
 	}
+	
 	public Card getCard(Card card1){
-		Card[] CardDeck2;
-		Card CardDeck3;
-		int i,k=0,l=0;
-		CardDeck2 = new Card[max-1];
-		for (i=0;i<max;i++){
-			if(CardDeck[i].equals(card1)) {
-				CardDeck3=CardDeck[i];
-				CardDeck[i]=null;
+		Card card2;
+		
+		if (index==0) return null;
+		int i;
+		for (i=0;i<index;i++){
+			if (CardDeck.get(i).equals(card1)){
+				card2=CardDeck.get(i);
 				index--;
-				for (k=0;k<max-1;k++){
-					if (CardDeck[k]!=null){
-						CardDeck2[l]=CardDeck[k];
-						l++;
-					}
-				}
-			CardDeck=CardDeck2;
-			return CardDeck3;
+				CardDeck.remove(i);
+				
+				return card2;
 			}
 		}
 		
@@ -41,13 +39,14 @@ public abstract class CardDeck {
 	public boolean put(Card card1){
 		if(card1 == null)
             throw new IllegalArgumentException("arraystack.method.argument.invalid");
-		if (max==index) return false;
-		CardDeck[index]=card1;
+	
+		CardDeck.add(index, card1);
+		
 		index++;
 		return true;
 	}
 	
-	public int getCardCount(){
+	public int getCurrentCount(){
 		return index;
 	}
 }
