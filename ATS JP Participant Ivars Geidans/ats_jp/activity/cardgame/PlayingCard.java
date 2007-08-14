@@ -14,7 +14,7 @@ interface PlayingCardConsts {
 
 	public static final int SPADES = 14,
 		HEARTS = 15,
-		DIAMONDS = 16,
+		DIAMONDS = 16,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
 		CLUBS = 17,
 		ACE = 1,
 		TWO = 2,
