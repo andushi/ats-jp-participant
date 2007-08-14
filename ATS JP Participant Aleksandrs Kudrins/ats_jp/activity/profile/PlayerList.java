@@ -35,16 +35,12 @@ public class PlayerList {
 	public PlayerProfile[] findPlayer(String name){
 		PlayerProfile[] profile;
 	
-//		profile = new PlayerProfile[max];
-		
 		int k,l=0;
 		for (k=0;k<index;k++){
 			if (list[k].getName().equals(name)){
-		//	profile[l]=list[k];
 				l++;
 			}
 		}
-				
         	profile = new PlayerProfile[l];
 			l=0;
 			for (k=0;k<index;k++){
@@ -53,7 +49,6 @@ public class PlayerList {
 						l++;
 			}
 		}
-		
 			return profile;
 	}
 	
@@ -84,8 +79,7 @@ public class PlayerList {
 		PlayerProfile profile2;
 		int i,l=0;
 		profile = new PlayerProfile[max-1];
-		if (id>max) return null;
-		if (list[id]==null) return null;
+		if (id>max || id<0 || list[id]==null) return null;
 		
 		profile2=list[id];
 		list[id]=null;
