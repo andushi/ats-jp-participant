@@ -83,7 +83,7 @@ public class PlayerList {
 		PlayerProfile[] profile;
 		PlayerProfile profile2;
 		int i,l=0;
-		profile = new PlayerProfile[max];
+		profile = new PlayerProfile[max-1];
 		if (id>max) return null;
 		if (list[id]==null) return null;
 		
