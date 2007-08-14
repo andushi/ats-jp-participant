@@ -7,7 +7,13 @@
  */
 package ats_jp.activity.cardgame;
 
-public interface Card {
+import ats_jp.activity.profile.PlayerProfile;
+
+
+	
+	public interface Card {
 
     public Object getCardAttribute(int attribute) throws CardException;
+    
 }
+
