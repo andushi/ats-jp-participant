@@ -95,7 +95,7 @@ public final class PlayingCard implements Card, PlayingCardConsts {
 	public int getSuit() {
 		return suit;
 	}
-
+	
 	public Object getCardAttribute(int attribute) throws CardException {
 		switch(attribute) {
 		//Integer representations.
