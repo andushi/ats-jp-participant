@@ -64,7 +64,7 @@ public class PlayingCard implements Card {
 		case STR_SUIT:
 			return getSuitAsString(suit);
 		}
-
+		throw new IllegalArgumentException("profile.method.argument.invalid");
 		// return getCard(rank, suit);
 
 		// TODO Auto-generated method stub
