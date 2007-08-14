@@ -15,7 +15,7 @@ public class CardPlayer extends PlayerProfile {
 		 inHand = new Card[count];
 	}
     
-	public boolean addCard(Card Cards){
+	public boolean addCard(Card Cards) throws IllegalArgumentException{
 		if (Cards==null)
 			throw new IllegalArgumentException("arraystack.method.argument.invalid");
 		
@@ -25,7 +25,7 @@ public class CardPlayer extends PlayerProfile {
 			counterID++;
 			return true;
 	}
-	public boolean removeCard(Card Cards){
+	public boolean removeCard(Card Cards)throws IllegalArgumentException{
 		if (Cards==null)
 			throw new IllegalArgumentException("arraystack.method.argument.invalid");
 		int i,k=0,l=0;
