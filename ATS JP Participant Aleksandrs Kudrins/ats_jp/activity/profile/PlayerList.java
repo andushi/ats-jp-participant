@@ -84,6 +84,7 @@ public class PlayerList {
 		profile2=list[id];
 		list[id]=null;
 		index--;
+		
 		for (i=0;i<max;i++){
 			if (list[i]!=null){
 				profile[l]=list[i];
