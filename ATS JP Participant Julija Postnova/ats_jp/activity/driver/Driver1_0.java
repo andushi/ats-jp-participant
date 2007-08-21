@@ -22,7 +22,7 @@ import ats_jp.activity.profile.PlayerProfile;
 public class Driver1_0 extends BaseDriver{
     
     private PlayerProfile data[]; 
-    
+
     public void initialize(){
         
         data = new PlayerProfile[4];
@@ -33,7 +33,7 @@ public class Driver1_0 extends BaseDriver{
         data[2] = new PlayerProfile("Toby", PlayerProfile.MALE);
         data[2].setBirthDate(1980, 5, 19);
         data[3] = new PlayerProfile("The NOW", PlayerProfile.MALE);
-        data[3].setBirthDate(Calendar.getInstance());
+        data[3].setBirthDate(((DateFormat) Calendar).getInstance());
     }
     
     public void start(){
