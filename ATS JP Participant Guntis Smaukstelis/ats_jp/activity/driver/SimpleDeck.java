@@ -15,8 +15,7 @@ public class SimpleDeck extends CardDeck{
         }
         
 		   for(int i =0; i < 5; i ++){             
-            store.add(card[i]);
-            
+            store.add(card[i]);         
         }		
 	}
 	

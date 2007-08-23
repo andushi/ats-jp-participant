@@ -18,7 +18,61 @@ public class ArrayStore extends AbstractArrayStore {
     //violate the encapsulation of the class.
     
     //HINT: This class has direct access to the protected and public members of AbstractArrayStore
-    
+	
+	
+	public boolean add(Object arg){
+		if(arg==null) throw new IllegalArgumentException("illegal.argument.exception");
+		if(isFull()) return false;
+		store[getCount()]=arg;
+		currentCount++;
+		return true;
+	}
+	
+	public boolean remove(Object arg){
+		if(arg==null) throw new IllegalArgumentException("illegal.argument.exception");
+		if(find(arg) == NOT_IN_STRUCTURE) return false;
+		else{			
+			remove(find(arg));			
+			return true;
+		}		
+	}
+	
+	public Object remove(int index){
+		if(isEmpty())
+			return false;
+		Object indexObject;
+		indexObject = store[index];
+		/*for(int i=index;i<currentCount;i++){
+			if(i == currentCount - 1)
+				store[i] = null;
+			else
+				store[i] = store[i+1];
+		}
+		*/
+		int i;
+		for(i=index; i<currentCount-1;++i){
+			if(i!=currentCount-1) 
+				store[i]=store[i+1];
+			else 
+				store[i]=null;
+		}		
+		currentCount--;
+		return indexObject;		
+	}
+	
+	public boolean insert(Object arg, int index){
+		if(arg==null || index<0 || index>currentCount-1) throw new IllegalArgumentException("illegal.argument.exception");
+		if(isFull())return false;
+		int i;
+		for(i=currentCount-1;i>index;i--){			
+			store[i]=store[i-1];
+		}
+		store[i]=arg;
+		return true;
+	}
+	
+	
+	/////////////////////
     public ArrayStore(int size) { 
         super(size);
     }
