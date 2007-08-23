@@ -58,8 +58,8 @@ public abstract class AbstractArrayStore {
         //TODO Activity 2.1 
         //Initialize the instance variable 'store' so that it can hold a number of objects specified by 'size'.
         //If the variable 'size' is in anyway illegal for an array, then use DEFAULT_SIZE instead
-    	if(size>=0) store = new Object[size]; 
-    	else store = new Object[DEFAULT_SIZE];
+    	if(size<1) {size = DEFAULT_SIZE;}
+    	store = new Object [size];
     }
     
     public boolean isEmpty() {
@@ -120,10 +120,10 @@ public abstract class AbstractArrayStore {
         // if(obj1.equals(obj2)){
         //    ...
         // }
-    	for(int i=0;i<DEFAULT_SIZE;i++){
+    	for(int i=0;i<currentCount;i++){
     		if(store[i].equals(arg)) return i;
     	}
-        
+       
          return NOT_IN_STRUCTURE;
 
     }
